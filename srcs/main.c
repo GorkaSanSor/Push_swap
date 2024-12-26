@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 12:39:12 by gsantill          #+#    #+#             */
-/*   Updated: 2024/12/26 15:16:10 by gsantill         ###   ########.fr       */
+/*   Updated: 2024/12/26 16:18:54 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,13 @@ int main(int argc, char **argv)
 	if (!utils.temp_array)
 	{
 		ft_printf("Error creating temp_array\n");
-		ft_exit_error(NULL, NULL);
 		return (1);
 	}
 	utils.split = ft_split(utils.temp_array, ' ');
 	if (!utils.split)
 	{
 		ft_printf("Error splitting arguments\n");
-		ft_free_utils(&utils);
-		ft_exit_error(NULL, NULL);
+		free(utils.temp_array);
 		return (1);
 	}
 	while (utils.split[word])

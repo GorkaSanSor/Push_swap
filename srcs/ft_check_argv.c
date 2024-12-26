@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 13:34:10 by gsantill          #+#    #+#             */
-/*   Updated: 2024/12/26 14:41:34 by gsantill         ###   ########.fr       */
+/*   Updated: 2024/12/26 16:33:08 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,7 @@ int	ft_duplicates(char **split, int word)
 			a = ft_long_atoi(split[i]);
 			b = ft_long_atoi(split[j]);
 			if (a == b)
-			{
-				ft_free_split(split);
 				return (1);
-			}
 			j++;
 		}
 		i++;
