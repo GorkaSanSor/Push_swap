@@ -6,7 +6,7 @@
 #    By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/27 15:43:03 by gsantill          #+#    #+#              #
-#    Updated: 2024/11/11 15:32:05 by gsantill         ###   ########.fr        #
+#    Updated: 2024/12/26 13:38:58 by gsantill         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,8 @@ SRCS = 		./ft_printf.c			\
 			./ft_print_char.c		\
 			./ft_print_str.c		\
 			./ft_print_pointer.c	\
-			./ft_print_hex.c		\
-			
+			./ft_print_hex.c
+
 OBJS = $(SRCS:.c=.o)
 
 NAME = ft_printf.a
@@ -31,7 +31,7 @@ $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
 %.o: %.c $(HEADER)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -I. -c $< -o $@
 
 clean:
 	rm -f $(OBJS)

@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/17 15:49:00 by gsantill          #+#    #+#             */
-/*   Updated: 2024/11/08 17:15:57 by gsantill         ###   ########.fr       */
+/*   Created: 2024/12/23 12:35:50 by gsantill          #+#    #+#             */
+/*   Updated: 2024/12/23 12:42:44 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"../srcs/push_swap.h"
+#include "libft.h"
 
-char	*ft_strjoin_endspace(char *s1, char const *s2)
+char	*ft_strjoin_addspace(char *s1, char *s2)
 {
 	char	*newstr;
 	size_t	i;
@@ -35,7 +35,7 @@ char	*ft_strjoin_endspace(char *s1, char const *s2)
 		newstr[i + j] = s2[j];
 		j++;
 	}
-	newstr[i + j] = ' ';
-	newstr[i + j + 1] = '\0';
+    newstr[i + j] = ' ';
+	newstr[i + j] = '\0';
 	return (newstr);
 }

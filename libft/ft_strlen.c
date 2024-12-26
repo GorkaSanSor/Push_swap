@@ -6,15 +6,15 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 14:49:39 by gsantill          #+#    #+#             */
-/*   Updated: 2024/11/08 17:16:34 by gsantill         ###   ########.fr       */
+/*   Updated: 2024/10/24 15:55:00 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"../srcs/push_swap.h"
+#include "libft.h"
 
-int	ft_strlen(const char *str)
+size_t	ft_strlen(const char *str)
 {
-	int	len;
+	size_t	len;
 
 	len = 0;
 	while (str[len] != '\0')

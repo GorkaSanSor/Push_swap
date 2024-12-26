@@ -6,11 +6,11 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 18:18:17 by gsantill          #+#    #+#             */
-/*   Updated: 2024/11/08 17:12:10 by gsantill         ###   ########.fr       */
+/*   Updated: 2024/10/02 11:30:13 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"../srcs/push_swap.h"
+#include "libft.h"
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t destsize)
 {

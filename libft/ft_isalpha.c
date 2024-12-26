@@ -6,16 +6,16 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 11:55:38 by gsantill          #+#    #+#             */
-/*   Updated: 2024/11/12 11:24:12 by gsantill         ###   ########.fr       */
+/*   Updated: 2024/10/02 11:12:05 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"../srcs/push_swap.h"
+#include "libft.h"
 
 int	ft_isalpha(int c)
 {
 	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
-		return (1);
+		return (c);
 	else
 		return (0);
 }

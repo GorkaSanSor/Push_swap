@@ -6,29 +6,29 @@
 #    By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/10 18:35:45 by gsantill          #+#    #+#              #
-#    Updated: 2024/11/11 15:48:45 by gsantill         ###   ########.fr        #
+#    Updated: 2024/10/24 15:27:03 by gsantill         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-SRCS = 	$(wildcard *.c)
-			
-OBJS = $(SRCS:.c=.o)
-			
+
+LIBFT_SRCS = $(wildcard *.c)
+LIBFT_OBJS = $(LIBFT_SRCS:.c=.o)
+
 NAME = libft.a
 HEADER = libft.h
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+$(NAME): $(LIBFT_OBJS)
+	ar rcs $(NAME) $(LIBFT_OBJS)
 
-$.o: %.c $(HEADER)
-	$(CC) $(CFLAGS) -c $< -o $@
+%.o: %.c $(HEADER)
+	$(CC) $(CFLAGS) -I. -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
+	rm -f $(LIBFT_OBJS)
 
 fclean: clean
 	rm -f $(NAME)
@@ -36,3 +36,4 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
+

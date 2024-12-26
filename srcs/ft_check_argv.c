@@ -6,27 +6,27 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 13:34:10 by gsantill          #+#    #+#             */
-/*   Updated: 2024/11/12 11:37:20 by gsantill         ###   ########.fr       */
+/*   Updated: 2024/12/26 14:41:34 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // Verifica si un string representa un número válido
-int ft_check_digits(char *str)
+int	ft_check_digits(char *str)
 {
-    int i;
-	
+	int i;
+
 	i = 0;
-	if (ft_isalpha(str[0]))
+	if (ft_isalpha(str[i]))
 		return (1);
-	if (str[0] == '-' || str[0] == '+')
+	if (str[i] == '+' || str[i] == '-')
 	{
 		if (!ft_isdigit(str[i + 1]))
 			return (1);
+		i++;
 	}
-	i++;
-    while (str[i])
+	while (str[i])
 	{
 		if (str[i] == '-' || str[i] == '+')
 		{
@@ -38,7 +38,7 @@ int ft_check_digits(char *str)
 			return (1);
 		i++;
 	}
-	return (0);  // Correcto
+	return (0);
 }
 
 // Verifica si hay duplicados en el array de strings `split`
@@ -52,18 +52,16 @@ int	ft_duplicates(char **split, int word)
 	i = 0;
 	while (i < word)
 	{
-		j = 0;
+		j = i + 1;
 		while (j < word)
 		{
 			a = ft_long_atoi(split[i]);
 			b = ft_long_atoi(split[j]);
-			if (i == j)
-			{
-				j++;
-				continue ;
-			}
 			if (a == b)
+			{
+				ft_free_split(split);
 				return (1);
+			}
 			j++;
 		}
 		i++;
@@ -92,15 +90,23 @@ int	ft_check_argv(char *temp_array, char **split, int word)
 {
 
 	// perform 3 checks: digits, duplicates, maxint or < minint.
-	if (ft_check_digits(temp_array) != 0 || ft_duplicates(split, word) != 0 \
-	|| ft_maxint(split, word) != 0)
+	if (ft_check_digits(temp_array) != 0)
 	{
-		ft_printf("Error in digits, maxint or duplicates\n");
+		ft_printf("Error in digits\n");
+		return (1);
+	}
+	if (ft_duplicates(split, word) != 0)
+	{
+		ft_printf("Error in duplicates\n");
+		return (1);
+	}
+	if (ft_maxint(split, word) != 0)
+	{
+		ft_printf("Error. Number > MaxInt or Number < MinInt\n");
 		return (1);
 	}
 	return (0);
 }
-
 
 // Cuenta la cantidad de palabras en `split`
 int	ft_split_count(char **split)

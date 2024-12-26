@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 11:20:10 by gsantill          #+#    #+#             */
-/*   Updated: 2024/11/12 14:32:54 by gsantill         ###   ########.fr       */
+/*   Updated: 2024/12/26 14:43:48 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_free_split(char **split)
 	int	word;
 
 	word = 0;
-	if (split == NULL)	// avoids SIGSEV if split is NULL
+	if (split == NULL)
 		return ;
 	while (split[word])
 	{
@@ -28,21 +28,22 @@ void	ft_free_split(char **split)
 }
 void	ft_free_stack(t_stack **head)
 {
-    t_stack *temp;
-
+	t_stack *current;
+	
 	if (head == NULL || *head == NULL)
 		return ;
-	temp = *head;
-    while (temp->next)
-    {
-        temp = temp->next;
+	current = *head;
+	while (current->ptr_to_next)
+	{
+		current = current->ptr_to_next;
 		free(*head);
-        *head = temp;
-    }
+		*head = current;
+	}
 	free(*head);
 	*head = NULL;
 	return ;
 }
+
 void	ft_free_utils(t_utils *utils)
 {
 	ft_free_split(utils->split);
@@ -50,31 +51,39 @@ void	ft_free_utils(t_utils *utils)
 	free(utils->temp_array);
 	utils->temp_array = NULL;
 }
+
 void	ft_exit_error(t_stack **head_a, t_stack **head_b)
 {
-	if (head_a == NULL || head_a != NULL)
+	if (head_a == NULL || *head_a != NULL)
 		ft_free_stack(head_a);
-	if (head_b == NULL || head_b != NULL)
+	if (head_b == NULL || *head_b != NULL)
 		ft_free_stack(head_b);
-	ft_printf("Error|n");
+	ft_printf("Exited due to an error");
 	exit(1);
 }
-char	*ft_create_temp_array(char **argv)
-{
-	int i;
-	char *temp_array;
-	char *temp2;
 
-	i = 0;
-	temp_array = NULL;
-	temp2 = NULL;
+//Crea un temp_array concatenando todos los argumentos separados por espacios
+char *ft_create_temp_array(char **argv)
+{
+	char	*temp;
+	char	*joined;
+	int		i;
+
+	temp = ft_strdup("");
+	if (!temp)
+		return (NULL);
+
+	i = 1;
 	while (argv[i])
 	{
-		temp2 = ft_strdup(temp_array);
-		free(temp_array);
-		temp_array = ft_strjoin_endspace(temp2, argv[i]);
-		free(temp2);
+		joined = ft_strjoin_addspace(temp, argv[i]);
+		free(temp);
+		if (!joined)
+			return (NULL);
+		temp = joined;
 		i++;
 	}
-	return (temp_array);
+
+	return (temp);
 }
+

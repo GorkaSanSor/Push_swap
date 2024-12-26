@@ -6,11 +6,13 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 12:57:51 by gsantill          #+#    #+#             */
-/*   Updated: 2024/11/08 12:25:03 by gsantill         ###   ########.fr       */
+/*   Updated: 2024/12/26 14:12:41 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"../srcs/push_swap.h"
+#include "libft.h"
+
+#include "libft.h"
 
 static size_t	count_words(char const *s, char c)
 {
