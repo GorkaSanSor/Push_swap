@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 13:34:10 by gsantill          #+#    #+#             */
-/*   Updated: 2024/12/26 16:33:08 by gsantill         ###   ########.fr       */
+/*   Updated: 2024/12/27 11:46:08 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ int	ft_check_digits(char *str)
 			if (!(ft_isdigit(str[i + 1]) == 1 && ft_isspace(str[i - 1]) == 1))
 				return (1);
 		}
-		if (ft_isdigit(str[i]) == 0 && \
-		ft_isspace(str[i]) == 0 && !(str[i] == '-' || str[i] == '+' ))
+		if (ft_isdigit(str[i]) == 0 && ft_isspace(str[i]) == 0 \
+		&& !(str[i] == '-' || str[i] == '+'))
 			return (1);
 		i++;
 	}
@@ -88,20 +88,11 @@ int	ft_check_argv(char *temp_array, char **split, int word)
 
 	// perform 3 checks: digits, duplicates, maxint or < minint.
 	if (ft_check_digits(temp_array) != 0)
-	{
-		ft_printf("Error in digits\n");
 		return (1);
-	}
 	if (ft_duplicates(split, word) != 0)
-	{
-		ft_printf("Error in duplicates\n");
-		return (1);
-	}
+		return (2);
 	if (ft_maxint(split, word) != 0)
-	{
-		ft_printf("Error. Number > MaxInt or Number < MinInt\n");
-		return (1);
-	}
+		return (3);
 	return (0);
 }
 

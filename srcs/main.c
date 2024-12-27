@@ -6,13 +6,13 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 12:39:12 by gsantill          #+#    #+#             */
-/*   Updated: 2024/12/26 16:18:54 by gsantill         ###   ########.fr       */
+/*   Updated: 2024/12/27 12:03:18 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "push_swap.h"
 
-static void	print_stack(t_stack *stack)
+static void	ft_print_stack(t_stack *stack)
 {
 	while (stack)
 	{
@@ -21,42 +21,44 @@ static void	print_stack(t_stack *stack)
 	}
 }
 
-
 int main(int argc, char **argv)
 {
-	int word;
-	t_stack *head_a;
-//	t_stack *head_b;
-	t_utils utils;
+	int		word;
+	t_stack	*head_a;
+//	t_stack	*head_b;
+	t_utils	utils;
+	int check_result;
 
 	word = 0;
+	head_a = NULL;
+//	head_b = NULL;
 	if (argc < 2)
-		return (0);
+		ft_error_exit(WRONG_ARGS, NULL, &head_a);
+
 	utils.temp_array = ft_create_temp_array(argv);
 	if (!utils.temp_array)
-	{
-		ft_printf("Error creating temp_array\n");
-		return (1);
-	}
+		ft_error_exit(UNKNOWN_ERROR, NULL, &head_a);
+
 	utils.split = ft_split(utils.temp_array, ' ');
 	if (!utils.split)
-	{
-		ft_printf("Error splitting arguments\n");
-		free(utils.temp_array);
-		return (1);
-	}
+		ft_error_exit(UNKNOWN_ERROR, &utils, &head_a);
+
 	while (utils.split[word])
 		word++;
-	if (ft_check_argv(utils.temp_array, utils.split, word) == 1)
-	{
-		ft_printf("Error in arguments\n");
-		ft_free_utils(&utils);
-		ft_exit_error(NULL, NULL);
-		return (1);
-	}
+
+	check_result = ft_check_argv(utils.temp_array, utils.split, word);
+	if (check_result == 1)
+		ft_error_exit(INVALID_DIGIT, &utils, &head_a);
+	if (check_result == 2)
+		ft_error_exit(DUPLICATES, &utils, &head_a);
+	if (check_result == 3)
+		ft_error_exit(OVERFLOW, &utils, &head_a);
+
 	head_a = ft_save_numbers(word, utils.split);
-	print_stack(head_a);
-//	head_b = NULL;
+	if (!head_a)
+		ft_error_exit(UNKNOWN_ERROR, &utils, &head_a);
+
+	ft_print_stack(head_a);
 	ft_free_stack(&head_a);
 	ft_free_utils(&utils);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 11:41:22 by gsantill          #+#    #+#             */
-/*   Updated: 2024/12/26 13:30:24 by gsantill         ###   ########.fr       */
+/*   Updated: 2024/12/27 11:50:36 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,14 @@
 # include <limits.h>
 # include "../ft_printf/ft_printf.h"
 # include "../libft/libft.h"
+
+/* ----------------------------------ERRORS-----------------------------------*/
+
+# define WRONG_ARGS 1
+# define INVALID_DIGIT 2
+# define DUPLICATES 3
+# define OVERFLOW 4
+# define UNKNOWN_ERROR 5
 
 /* --------------------------------PROTOTYPES---------------------------------*/
 
@@ -69,7 +77,7 @@ void	ft_stack_add_back(t_stack **head, t_stack *new);
 void	ft_free_split(char **split);
 void	ft_free_utils(t_utils *utils);
 void	ft_free_stack(t_stack **head);
-void	ft_exit_error(t_stack **head_a, t_stack **head_b);
+void	ft_error_exit(int err_type, t_utils *utils, t_stack **stack);
 
 /*--------------------------------INSTRUCTIONS--------------------------------*/
 

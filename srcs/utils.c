@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 11:20:10 by gsantill          #+#    #+#             */
-/*   Updated: 2024/12/26 14:43:48 by gsantill         ###   ########.fr       */
+/*   Updated: 2024/12/27 11:53:43 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_free_split(char **split)
 		free(split[word]);
 		word++;
 	}
-	free(split);	// free the first array of pointers
+	free(split);
 }
 void	ft_free_stack(t_stack **head)
 {
@@ -50,16 +50,6 @@ void	ft_free_utils(t_utils *utils)
 	utils->split = NULL;
 	free(utils->temp_array);
 	utils->temp_array = NULL;
-}
-
-void	ft_exit_error(t_stack **head_a, t_stack **head_b)
-{
-	if (head_a == NULL || *head_a != NULL)
-		ft_free_stack(head_a);
-	if (head_b == NULL || *head_b != NULL)
-		ft_free_stack(head_b);
-	ft_printf("Exited due to an error");
-	exit(1);
 }
 
 //Crea un temp_array concatenando todos los argumentos separados por espacios
