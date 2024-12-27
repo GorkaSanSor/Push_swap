@@ -1,48 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stack_list.c                                    :+:      :+:    :+:   */
+/*   ft_frees.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/26 13:09:58 by gsantill          #+#    #+#             */
-/*   Updated: 2024/12/26 15:13:41 by gsantill         ###   ########.fr       */
+/*   Created: 2024/12/27 12:42:09 by gsantill          #+#    #+#             */
+/*   Updated: 2024/12/27 12:42:22 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack *ft_stack_new(int number)
+void	ft_free_split(char **split)
 {
-	t_stack *new;
-	
-	new = (t_stack *)malloc(sizeof(t_stack));
-	if (!new)
-		return (0);
-	new->number = number;
-	new->index = 0;
-	new->cost_a = -1;
-	new->cost_b = -1;
-	new->pos = -1;
-	new->target_pos = -1;
-	new->ptr_to_next = NULL;
-	return (new);
-}
+	int	word;
 
-void	ft_stack_add_back(t_stack **head, t_stack *new)
+	word = 0;
+	if (split == NULL)
+		return ;
+	while (split[word])
+	{
+		free(split[word]);
+		word++;
+	}
+	free(split);
+}
+void	ft_free_stack(t_stack **head)
 {
 	t_stack *current;
 	
+	if (head == NULL || *head == NULL)
+		return ;
 	current = *head;
-	if(!*head)
+	while (current->ptr_to_next)
 	{
-		*head = new;
-		return ;
-	}
-	if (!new)
-		return ;
-	while (current->ptr_to_next != 0)
 		current = current->ptr_to_next;
-	current->ptr_to_next = new;
+		free(*head);
+		*head = current;
+	}
+	free(*head);
+	*head = NULL;
 	return ;
 }
+
+void	ft_free_utils(t_utils *utils)
+{
+	ft_free_split(utils->split);
+	utils->split = NULL;
+	free(utils->temp_array);
+	utils->temp_array = NULL;
+}
+

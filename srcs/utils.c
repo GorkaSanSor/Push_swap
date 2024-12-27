@@ -6,51 +6,11 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 11:20:10 by gsantill          #+#    #+#             */
-/*   Updated: 2024/12/27 11:53:43 by gsantill         ###   ########.fr       */
+/*   Updated: 2024/12/27 12:42:47 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	ft_free_split(char **split)
-{
-	int	word;
-
-	word = 0;
-	if (split == NULL)
-		return ;
-	while (split[word])
-	{
-		free(split[word]);
-		word++;
-	}
-	free(split);
-}
-void	ft_free_stack(t_stack **head)
-{
-	t_stack *current;
-	
-	if (head == NULL || *head == NULL)
-		return ;
-	current = *head;
-	while (current->ptr_to_next)
-	{
-		current = current->ptr_to_next;
-		free(*head);
-		*head = current;
-	}
-	free(*head);
-	*head = NULL;
-	return ;
-}
-
-void	ft_free_utils(t_utils *utils)
-{
-	ft_free_split(utils->split);
-	utils->split = NULL;
-	free(utils->temp_array);
-	utils->temp_array = NULL;
-}
 
 //Crea un temp_array concatenando todos los argumentos separados por espacios
 char *ft_create_temp_array(char **argv)
@@ -76,4 +36,21 @@ char *ft_create_temp_array(char **argv)
 
 	return (temp);
 }
-
+void	ft_error_exit(int err_type, t_utils *utils, t_stack **stack)
+{
+	if (utils)
+		ft_free_utils(utils);
+	if (stack && *stack)
+		ft_free_stack(stack);
+	if (err_type == WRONG_ARGS)
+		ft_printf("Error\nInvalid number of arguments.\n");
+	else if (err_type == INVALID_DIGIT)
+		ft_printf("Error\nOne or more arguments are not valid numbers.\n");
+	else if (err_type == DUPLICATES)
+		ft_printf("Error\nThere are duplicate numbers.\n");
+	else if (err_type == OVERFLOW)
+		ft_printf("Error\nA number is out of the valid range for an int.\n");
+	else
+		ft_printf("Error\nAn unknown error occurred.\n");
+	exit(1);
+}
