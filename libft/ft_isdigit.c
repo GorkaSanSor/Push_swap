@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 14:54:23 by gsantill          #+#    #+#             */
-/*   Updated: 2024/10/11 14:43:15 by gsantill         ###   ########.fr       */
+/*   Updated: 2024/12/26 16:52:10 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int	ft_isdigit(int c)
 {
 	if (c >= '0' && c <= '9')
-		return (c);
-	else
-		return (0);
+		return (1);
+	return (0);
 }
