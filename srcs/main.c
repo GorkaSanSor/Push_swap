@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 12:39:12 by gsantill          #+#    #+#             */
-/*   Updated: 2024/12/27 12:38:35 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/08 15:14:51 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ int main(int argc, char **argv)
 	head_a = ft_save_numbers(word, utils.split);
 	if (!head_a)
 		ft_error_exit(UNKNOWN_ERROR, &utils, &head_a);
+
+	ft_rra(&head_a);
 
 	ft_print_stack(head_a);
 	ft_free_stack(&head_a);

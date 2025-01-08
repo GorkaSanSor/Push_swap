@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 11:41:22 by gsantill          #+#    #+#             */
-/*   Updated: 2024/12/27 11:50:36 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/08 14:12:12 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,16 +81,16 @@ void	ft_error_exit(int err_type, t_utils *utils, t_stack **stack);
 
 /*--------------------------------INSTRUCTIONS--------------------------------*/
 
-// void	ft_pa(t_stack **head_a, t_stack **head_b);
-// void	ft_pb(t_stack **head_a, t_stack **head_b);
-// void	ft_sa(t_stack **head_a);
-// void	ft_sb(t_stack **head_b);
-// void	ft_ra(t_stack **head_a);
-// void	ft_rb(t_stack **head_b);
-// void	ft_rr(t_stack **head_a, t_stack **head_b);
-// void	ft_rrr(t_stack **head_a, t_stack **head_b);
-// void	ft_rra(t_stack **head_a);
-// void	ft_rrb(t_stack **head_b);
-
+void	ft_sa(t_stack **head_a);
+void	ft_sb(t_stack **head_b);
+void	ft_ss(t_stack **head_a, t_stack **head_b);
+void	ft_pa(t_stack **head_a, t_stack **head_b);
+void	ft_pb(t_stack **head_a, t_stack **head_b);
+void	ft_ra(t_stack **head_a);
+void	ft_rb(t_stack **head_b);
+void	ft_rr(t_stack **head_a, t_stack **head_b);
+void	ft_rra(t_stack **head_a);
+void	ft_rrb(t_stack **head_b);
+void	ft_rrr(t_stack **head_a, t_stack **head_b);
 
 #endif

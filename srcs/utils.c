@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 11:20:10 by gsantill          #+#    #+#             */
-/*   Updated: 2024/12/27 12:42:47 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/08 15:32:06 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ char *ft_create_temp_array(char **argv)
 
 	return (temp);
 }
+
 void	ft_error_exit(int err_type, t_utils *utils, t_stack **stack)
 {
 	if (utils)
