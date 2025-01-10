@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 12:39:12 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/10 16:18:53 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/10 16:37:04 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,9 +88,6 @@ int main(int argc, char **argv)
 	if (!head_a)
 		ft_error_exit(UNKNOWN_ERROR, &utils, &head_a);
 	ft_push_swap(&head_a, &head_b, word_count);
-
-	// Test function:
-	// ft_rra(&head_a);
 
 	ft_print_stack(head_a);
 	ft_free_stack(&head_a);

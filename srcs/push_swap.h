@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 11:41:22 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/10 16:18:20 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/10 16:31:10 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,6 @@
 
 number: El valor del número almacenado en ese nodo.
 index: El índice de la posición del número.
-pos: La posición actual del número en la pila.
-target_pos: La posición objetivo para este número después de la ordenación.
-cost_a y cost_b: Costo asociado con mover un número de una pila a otra.
 *next: Puntero al siguiente nodo en la pila.*/
 
 typedef struct s_stack
@@ -45,7 +42,6 @@ typedef struct s_stack
 	long			number;
 	long			index;
 	struct s_stack	*next;
-	struct s_stack	*prev;
 }	t_stack;
 
 typedef struct s_utils

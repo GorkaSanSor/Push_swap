@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 13:34:10 by gsantill          #+#    #+#             */
-/*   Updated: 2024/12/27 12:14:13 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/10 16:36:38 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,5 +105,4 @@ int	ft_split_count(char **split)
 		count++;
 	return (count);
 }
-
 
