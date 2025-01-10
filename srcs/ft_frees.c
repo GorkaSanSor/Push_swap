@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 12:42:09 by gsantill          #+#    #+#             */
-/*   Updated: 2024/12/27 12:42:22 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/10 13:11:14 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ void	ft_free_stack(t_stack **head)
 	if (head == NULL || *head == NULL)
 		return ;
 	current = *head;
-	while (current->ptr_to_next)
+	while (current->next)
 	{
-		current = current->ptr_to_next;
+		current = current->next;
 		free(*head);
 		*head = current;
 	}

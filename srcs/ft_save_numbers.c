@@ -6,14 +6,14 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 12:37:38 by gsantill          #+#    #+#             */
-/*   Updated: 2024/12/27 12:44:04 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/10 13:12:38 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // Save the numbers into the list
-t_stack *ft_save_numbers(int word, char **split)
+t_stack *ft_parse_to_stack(int word, char **split)
 {
 	t_stack	*head_a;
 	int		i;
@@ -41,11 +41,7 @@ t_stack *ft_stack_new(int number)
 		return (0);
 	new->number = number;
 	new->index = 0;
-	new->cost_a = -1;
-	new->cost_b = -1;
-	new->pos = -1;
-	new->target_pos = -1;
-	new->ptr_to_next = NULL;
+	new->next = NULL;
 	return (new);
 }
 
@@ -61,8 +57,8 @@ void	ft_stack_add_back(t_stack **head, t_stack *new)
 	}
 	if (!new)
 		return ;
-	while (current->ptr_to_next != 0)
-		current = current->ptr_to_next;
-	current->ptr_to_next = new;
+	while (current->next != 0)
+		current = current->next;
+	current->next = new;
 	return ;
 }

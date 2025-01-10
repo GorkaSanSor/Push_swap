@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 11:19:11 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/08 12:56:17 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/10 13:11:33 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ static void	ft_push(t_stack **src, t_stack **dst)
 
 	if (*src == NULL)
 		return ;
-	current = (*src)->ptr_to_next;
-	(*src)->ptr_to_next = *dst;
+	current = (*src)->next;
+	(*src)->next = *dst;
 	*dst = *src;
 	*src = current;
 }
@@ -27,8 +27,10 @@ static void	ft_push(t_stack **src, t_stack **dst)
 void	ft_pa(t_stack **head_a, t_stack **head_b)
 {
 	ft_push(head_b, head_a);
+	ft_printf("pa\n");
 }
 void	ft_pb(t_stack **head_a, t_stack **head_b)
 {
 	ft_push(head_a, head_b);
+	ft_printf("pb\n");
 }

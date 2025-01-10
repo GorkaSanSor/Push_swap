@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 11:41:22 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/08 14:12:12 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/10 15:37:28 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,17 +38,14 @@ index: El índice de la posición del número.
 pos: La posición actual del número en la pila.
 target_pos: La posición objetivo para este número después de la ordenación.
 cost_a y cost_b: Costo asociado con mover un número de una pila a otra.
-*ptr_to_next: Puntero al siguiente nodo en la pila.*/
+*next: Puntero al siguiente nodo en la pila.*/
 
 typedef struct s_stack
 {
-	int				number;
-	int				index;
-	int				pos;
-	int				target_pos;
-	int				cost_a;
-	int				cost_b;
-	struct s_stack	*ptr_to_next;
+	long			number;
+	long			index;
+	struct s_stack	*next;
+	struct s_stack	*prev;
 }	t_stack;
 
 typedef struct s_utils
@@ -61,7 +58,9 @@ typedef struct s_utils
 
 char	*ft_create_temp_array(char **argv);
 int		ft_check_argv(char *temp_array, char **split, int word);
-t_stack *ft_save_numbers(int word, char **split);
+t_stack *ft_parse_to_stack(int word, char **split);
+void	ft_sort_three(t_stack **head_a);
+void	ft_sort_four(t_stack **head_a, t_stack **head_b);
 
 /*---------------------------------MAIN SUB_FT--------------------------------*/
 
@@ -78,6 +77,10 @@ void	ft_free_split(char **split);
 void	ft_free_utils(t_utils *utils);
 void	ft_free_stack(t_stack **head);
 void	ft_error_exit(int err_type, t_utils *utils, t_stack **stack);
+int		ft_stack_is_sorted(t_stack *head);
+int 	ft_min_num(t_stack *head);
+int		ft_max_num(t_stack *head);
+int		ft_find_index(t_stack *head, int number);
 
 /*--------------------------------INSTRUCTIONS--------------------------------*/
 

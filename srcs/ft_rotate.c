@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 11:19:18 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/08 13:48:42 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/10 13:11:55 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,25 +21,28 @@ static void	ft_rotate(t_stack **head)
 
 	lsthead = *head;
 	current = *head;
-	while (current->ptr_to_next != NULL)
-		current = current->ptr_to_next;
-	current->ptr_to_next = lsthead;
-	*head = lsthead->ptr_to_next;
-	lsthead->ptr_to_next = NULL;
+	while (current->next != NULL)
+		current = current->next;
+	current->next = lsthead;
+	*head = lsthead->next;
+	lsthead->next = NULL;
 }
 
 void	ft_ra(t_stack **head_a)
 {
 	ft_rotate(head_a);
+	ft_printf("ra\n");
 }
 
 void	ft_rb(t_stack **head_b)
 {
 	ft_rotate(head_b);
+	ft_printf("rb\n");
 }
 
 void	ft_rr(t_stack **head_a, t_stack **head_b)
 {
 	ft_rotate(head_a);
 	ft_rotate(head_b);
+	ft_printf("rr\n");
 }
