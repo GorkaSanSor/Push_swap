@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 12:39:12 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/10 15:45:26 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/10 16:18:53 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,10 @@ static void	ft_push_swap(t_stack **head_a, t_stack **head_b, int word_count)
 		ft_sort_three(head_a);
 	else if (word_count == 4 && ft_stack_is_sorted(*head_a) == 0)
 		ft_sort_four(head_a, head_b);
+	else if (word_count == 5 && ft_stack_is_sorted(*head_a) == 0)
+		ft_sort_five(head_a, head_b);
 	else
-		ft_printf("Trabajando para ordenar más de 4 numeros\n");
+		ft_printf("Trabajando para ordenar más de 5 numeros\n");
 }
 
 int main(int argc, char **argv)

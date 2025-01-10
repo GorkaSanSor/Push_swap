@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 11:41:22 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/10 15:37:28 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/10 16:18:20 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ int		ft_check_argv(char *temp_array, char **split, int word);
 t_stack *ft_parse_to_stack(int word, char **split);
 void	ft_sort_three(t_stack **head_a);
 void	ft_sort_four(t_stack **head_a, t_stack **head_b);
+void	ft_sort_five(t_stack **head_a, t_stack **head_b);
 
 /*---------------------------------MAIN SUB_FT--------------------------------*/
 
