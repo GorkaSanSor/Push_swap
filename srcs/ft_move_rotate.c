@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rotate.c                                        :+:      :+:    :+:   */
+/*   ft_move_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 11:19:18 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/10 13:11:55 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/14 12:32:13 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,35 @@
 
 // Shifts all the elements of the stack a up by one position. 
 // The first element becomes the last. 
-static void	ft_rotate(t_stack **head)
+static void	ft_rotate(t_stack **stack)
 {
 	t_stack *current;
-	t_stack *lsthead;
+	t_stack *lststack;
 
-	lsthead = *head;
-	current = *head;
+	lststack = *stack;
+	current = *stack;
 	while (current->next != NULL)
 		current = current->next;
-	current->next = lsthead;
-	*head = lsthead->next;
-	lsthead->next = NULL;
+	current->next = lststack;
+	*stack = lststack->next;
+	lststack->next = NULL;
 }
 
-void	ft_ra(t_stack **head_a)
+void	ft_ra(t_stack **stack_a)
 {
-	ft_rotate(head_a);
+	ft_rotate(stack_a);
 	ft_printf("ra\n");
 }
 
-void	ft_rb(t_stack **head_b)
+void	ft_rb(t_stack **stack_b)
 {
-	ft_rotate(head_b);
+	ft_rotate(stack_b);
 	ft_printf("rb\n");
 }
 
-void	ft_rr(t_stack **head_a, t_stack **head_b)
+void	ft_rr(t_stack **stack_a, t_stack **stack_b)
 {
-	ft_rotate(head_a);
-	ft_rotate(head_b);
+	ft_rotate(stack_a);
+	ft_rotate(stack_b);
 	ft_printf("rr\n");
 }

@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 11:20:10 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/10 11:39:01 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/14 12:28:08 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,40 @@ char *ft_create_temp_array(char **argv)
 	return (temp);
 }
 
+void ft_errors(int argc, char **argv, t_utils *utils, t_stack **stack_a)
+{
+	int word_count;
+	int argv_error;
+
+	word_count = 0;
+
+	if (argc < 2)
+		ft_error_exit(WRONG_ARGS, NULL, stack_a);
+
+	utils->temp_array = ft_create_temp_array(argv);
+	if (!utils->temp_array)
+		ft_error_exit(UNKNOWN_ERROR, NULL, stack_a);
+
+	utils->split = ft_split(utils->temp_array, ' ');
+	if (!utils->split)
+		ft_error_exit(UNKNOWN_ERROR, utils, stack_a);
+
+	while (utils->split[word_count])
+		word_count++;
+
+	argv_error = ft_check_argv(utils->temp_array, utils->split, word_count);
+	if (argv_error == 1)
+		ft_error_exit(INVALID_DIGIT, utils, stack_a);
+	if (argv_error == 2)
+		ft_error_exit(DUPLICATES, utils, stack_a);
+	if (argv_error == 3)
+		ft_error_exit(OVERFLOW, utils, stack_a);
+
+	*stack_a = ft_parse_to_stack(word_count, utils->split);
+	if (!*stack_a)
+		ft_error_exit(UNKNOWN_ERROR, utils, stack_a);
+}
+
 void	ft_error_exit(int err_type, t_utils *utils, t_stack **stack)
 {
 	if (utils)
@@ -44,14 +78,14 @@ void	ft_error_exit(int err_type, t_utils *utils, t_stack **stack)
 	if (stack && *stack)
 		ft_free_stack(stack);
 	if (err_type == WRONG_ARGS)
-		ft_printf("Error\nInvalid number of arguments.\n");
+		ft_printf("Error. Invalid number of arguments.\n");
 	else if (err_type == INVALID_DIGIT)
-		ft_printf("Error\nOne or more arguments are not valid numbers.\n");
+		ft_printf("Error. One or more arguments are not valid numbers.\n");
 	else if (err_type == DUPLICATES)
-		ft_printf("Error\nThere are duplicate numbers.\n");
+		ft_printf("Error. There are duplicate numbers.\n");
 	else if (err_type == OVERFLOW)
-		ft_printf("Error\nA number is out of the valid range for an int.\n");
+		ft_printf("Error. A number is out of the valid range for an int.\n");
 	else
-		ft_printf("Error\nAn unknown error occurred.\n");
+		ft_printf("Error. An unknown error occurred.\n");
 	exit(1);
 }

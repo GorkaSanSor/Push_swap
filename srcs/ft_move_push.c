@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_push.c                                          :+:      :+:    :+:   */
+/*   ft_move_push.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 11:19:11 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/10 13:11:33 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/14 12:28:26 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ static void	ft_push(t_stack **src, t_stack **dst)
 	*src = current;
 }
 
-void	ft_pa(t_stack **head_a, t_stack **head_b)
+void	ft_pa(t_stack **stack_a, t_stack **stack_b)
 {
-	ft_push(head_b, head_a);
+	ft_push(stack_b, stack_a);
 	ft_printf("pa\n");
 }
-void	ft_pb(t_stack **head_a, t_stack **head_b)
+void	ft_pb(t_stack **stack_a, t_stack **stack_b)
 {
-	ft_push(head_a, head_b);
+	ft_push(stack_a, stack_b);
 	ft_printf("pb\n");
 }

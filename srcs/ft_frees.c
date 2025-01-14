@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 12:42:09 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/10 13:11:14 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/14 12:31:46 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,21 @@ void	ft_free_split(char **split)
 	}
 	free(split);
 }
-void	ft_free_stack(t_stack **head)
+void	ft_free_stack(t_stack **stack)
 {
 	t_stack *current;
 	
-	if (head == NULL || *head == NULL)
+	if (stack == NULL || *stack == NULL)
 		return ;
-	current = *head;
+	current = *stack;
 	while (current->next)
 	{
 		current = current->next;
-		free(*head);
-		*head = current;
+		free(*stack);
+		*stack = current;
 	}
-	free(*head);
-	*head = NULL;
+	free(*stack);
+	*stack = NULL;
 	return ;
 }
 
