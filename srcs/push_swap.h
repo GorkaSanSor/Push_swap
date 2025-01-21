@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 11:41:22 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/21 10:20:04 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/21 14:12:57 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int		ft_check_argv(char *temp_array, char **split, int word);
 t_stack *ft_parse_to_stack(int word, char **split);
 void	ft_sort_three(t_stack **stack_a);
 void	ft_sort_four(t_stack **stack_a, t_stack **stack_b);
-void	ft_sort_five(t_stack **stack_a, t_stack **stack_b);
+//void	ft_sort_five(t_stack **stack_a, t_stack **stack_b);
 
 /*---------------------------------MAIN SUB_FT--------------------------------*/
 
@@ -98,7 +98,11 @@ int		ft_do_rarb(t_stack **stack_a, t_stack **stack_b, int n, char *stack);
 int		ft_do_rrarrb(t_stack **stack_a, t_stack **stack_b, int n, char *stack);
 int		ft_do_rrarb(t_stack **stack_a, t_stack **stack_b, int n, char *stack);
 int		ft_do_rarrb(t_stack **stack_a, t_stack **stack_b, int n, char *stack);
-void	ft_sort_big(t_stack **stack_a, t_stack **stack_b);
+void	ft_sort_more_than_3_in_b(t_stack **stack_a, t_stack **stack_b);
+t_stack	*ft_sort_b(t_stack **stack_a);
+t_stack	*ft_sort_a(t_stack **stack_a, t_stack **stack_b);
+void	ft_sort(t_stack **stack_a);
+
 
 /*--------------------------------INSTRUCTIONS--------------------------------*/
 

@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 12:11:51 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/20 14:17:10 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/21 14:13:14 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	ft_sort_four(t_stack **stack_a, t_stack **stack_b)
 	ft_sort_three(stack_a);
 	ft_pa(stack_a, stack_b);
 }
-
+/*
 void	ft_sort_five(t_stack **stack_a, t_stack **stack_b)
 {
 	int min_index;
@@ -100,3 +100,4 @@ void	ft_sort_five(t_stack **stack_a, t_stack **stack_b)
 	ft_sort_four(stack_a, stack_b);
 	ft_pa(stack_a, stack_b);
 }
+*/

@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 12:39:12 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/21 10:34:00 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/21 14:12:26 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ static void	ft_push_swap(t_stack **stack_a, t_stack **stack_b, int split_count)
 		ft_sa(stack_a);
 	else if (split_count == 3 && ft_stack_is_sorted(*stack_a) == 0)
 		ft_sort_three(stack_a);
-//	else if (split_count == 4 && ft_stack_is_sorted(*stack_a) == 0)
-//		ft_sort_four(stack_a, stack_b);
+	else if (split_count == 4 && ft_stack_is_sorted(*stack_a) == 0)
+		ft_sort_four(stack_a, stack_b);
 //	else if (split_count == 5 && ft_stack_is_sorted(*stack_a) == 0)
 //		ft_sort_five(stack_a, stack_b);
 	else
-		ft_sort_big(stack_a, stack_b);
+		ft_sort(stack_a);
 }
 
 int main(int argc, char **argv) {
