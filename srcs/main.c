@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 12:39:12 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/14 12:29:35 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/21 10:34:00 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,26 +17,26 @@ static void	ft_print_stack(t_stack *stack)
 {
 	while (stack)
 	{
-		ft_printf("Number: %d\n", stack->number);
+		ft_printf("Number: %d\n", stack->nbr);
 		stack = stack->next;
 	}
 }
 
 // Checkea la cantidad de numeros y llama al algoritmo correspondiente.
-static void	ft_push_swap(t_stack **stack_a, t_stack **stack_b, int word_count)
+static void	ft_push_swap(t_stack **stack_a, t_stack **stack_b, int split_count)
 {
-	if (word_count < 2)
+	if (split_count < 2)
 		return;
-	else if (word_count == 2 && ft_stack_is_sorted(*stack_a) == 0)
+	else if (split_count == 2 && ft_stack_is_sorted(*stack_a) == 0)
 		ft_sa(stack_a);
-	else if (word_count == 3 && ft_stack_is_sorted(*stack_a) == 0)
+	else if (split_count == 3 && ft_stack_is_sorted(*stack_a) == 0)
 		ft_sort_three(stack_a);
-	else if (word_count == 4 && ft_stack_is_sorted(*stack_a) == 0)
-		ft_sort_four(stack_a, stack_b);
-	else if (word_count == 5 && ft_stack_is_sorted(*stack_a) == 0)
-		ft_sort_five(stack_a, stack_b);
+//	else if (split_count == 4 && ft_stack_is_sorted(*stack_a) == 0)
+//		ft_sort_four(stack_a, stack_b);
+//	else if (split_count == 5 && ft_stack_is_sorted(*stack_a) == 0)
+//		ft_sort_five(stack_a, stack_b);
 	else
-		ft_printf("Trabajando para ordenar más de 5 numeros\n");
+		ft_sort_big(stack_a, stack_b);
 }
 
 int main(int argc, char **argv) {
@@ -44,7 +44,7 @@ int main(int argc, char **argv) {
 	t_stack *stack_b = NULL;
 	t_utils utils;
 
-	ft_errors(argc, argv, &utils, &stack_a);
+	ft_check_errors(argc, argv, &utils, &stack_a);
 
 	ft_push_swap(&stack_a, &stack_b, ft_split_count(utils.split));
 
@@ -53,6 +53,6 @@ int main(int argc, char **argv) {
 	ft_free_stack(&stack_b);
 	ft_free_utils(&utils);
 
-	return 0;
+	return (0);
 }
 

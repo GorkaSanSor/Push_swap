@@ -6,13 +6,13 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 12:37:38 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/14 12:32:33 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/20 14:16:06 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// Save the numbers into the list
+// Save the nbrs into the list
 t_stack *ft_parse_to_stack(int word, char **split)
 {
 	t_stack	*stack_a;
@@ -32,14 +32,14 @@ t_stack *ft_parse_to_stack(int word, char **split)
 	}
 	return (stack_a);
 }
-t_stack *ft_stack_new(int number)
+t_stack *ft_stack_new(int nbr)
 {
 	t_stack *new;
 	
 	new = (t_stack *)malloc(sizeof(t_stack));
 	if (!new)
 		return (0);
-	new->number = number;
+	new->nbr = nbr;
 	new->index = 0;
 	new->next = NULL;
 	return (new);

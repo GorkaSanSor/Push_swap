@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 12:11:51 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/14 12:32:44 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/20 14:17:10 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,24 @@ int	ft_stack_is_sorted(t_stack *stack)
 {
 	while (stack->next != NULL)
 	{
-		if (stack->number > stack->next->number)
+		if (stack->nbr > stack->next->nbr)
 			return (0);
 		stack = stack->next;
 	}
 	return (1);
 }
 
-// Sort a stack of 3 numbers only.
+// Sort a stack of 3 nbrs only.
 void	ft_sort_three(t_stack **stack_a)
 {
 	if (ft_stack_is_sorted(*stack_a) == 1)
 		return ;
-	if (ft_min_num(*stack_a) == (*stack_a)->number)
+	if (ft_min_num(*stack_a) == (*stack_a)->nbr)
 	{
 		ft_rra(stack_a);
 		ft_sa(stack_a);
 	}
-	else if (ft_max_num(*stack_a) == (*stack_a)->number)
+	else if (ft_max_num(*stack_a) == (*stack_a)->nbr)
 	{
 		ft_ra(stack_a);
 		if (!ft_stack_is_sorted(*stack_a))
@@ -51,14 +51,14 @@ void	ft_sort_three(t_stack **stack_a)
 
 void	ft_sort_four(t_stack **stack_a, t_stack **stack_b)
 {
-	if (ft_min_num(*stack_a) == (*stack_a)->number)
+	if (ft_min_num(*stack_a) == (*stack_a)->nbr)
 		ft_pb(stack_a, stack_b);
-	else if(ft_min_num(*stack_a) == (*stack_a)->next->number)
+	else if(ft_min_num(*stack_a) == (*stack_a)->next->nbr)
 	{
 		ft_sa(stack_a);
 		ft_pb(stack_a, stack_b);
 	}
-	else if (ft_min_num(*stack_a) == (*stack_a)->next->next->number)
+	else if (ft_min_num(*stack_a) == (*stack_a)->next->next->nbr)
 	{
 		ft_rra(stack_a);
 		ft_rra(stack_a);

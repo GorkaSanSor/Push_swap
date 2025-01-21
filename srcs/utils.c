@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 11:20:10 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/14 12:28:08 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/20 16:17:45 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,12 @@ char *ft_create_temp_array(char **argv)
 	return (temp);
 }
 
-void ft_errors(int argc, char **argv, t_utils *utils, t_stack **stack_a)
+void ft_check_errors(int argc, char **argv, t_utils *utils, t_stack **stack_a)
 {
-	int word_count;
+	int split_count;
 	int argv_error;
 
-	word_count = 0;
+	split_count = 0;
 
 	if (argc < 2)
 		ft_error_exit(WRONG_ARGS, NULL, stack_a);
@@ -55,10 +55,10 @@ void ft_errors(int argc, char **argv, t_utils *utils, t_stack **stack_a)
 	if (!utils->split)
 		ft_error_exit(UNKNOWN_ERROR, utils, stack_a);
 
-	while (utils->split[word_count])
-		word_count++;
+	while (utils->split[split_count])
+		split_count++;
 
-	argv_error = ft_check_argv(utils->temp_array, utils->split, word_count);
+	argv_error = ft_check_argv(utils->temp_array, utils->split, split_count);
 	if (argv_error == 1)
 		ft_error_exit(INVALID_DIGIT, utils, stack_a);
 	if (argv_error == 2)
@@ -66,7 +66,7 @@ void ft_errors(int argc, char **argv, t_utils *utils, t_stack **stack_a)
 	if (argv_error == 3)
 		ft_error_exit(OVERFLOW, utils, stack_a);
 
-	*stack_a = ft_parse_to_stack(word_count, utils->split);
+	*stack_a = ft_parse_to_stack(split_count, utils->split);
 	if (!*stack_a)
 		ft_error_exit(UNKNOWN_ERROR, utils, stack_a);
 }

@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 18:35:03 by gsantill          #+#    #+#             */
-/*   Updated: 2024/12/26 14:13:01 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/21 10:12:17 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int		ft_tolower(int c);
 int		ft_toupper(int c);
 size_t	ft_strlen(const char *str);
 char	*ft_strchr(char *str, int c);
+int		ft_strcmp(char *s1, char *s2);
 char	*ft_strrchr(const char *str, int search_c);
 int		ft_strncmp(char *s1, char *s2, unsigned int n);
 void	*ft_memset(void *dest, int c, size_t len);
