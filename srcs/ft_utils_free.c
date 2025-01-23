@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_frees.c                                         :+:      :+:    :+:   */
+/*   ft_utils_free.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 12:42:09 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/14 12:31:46 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/22 14:08:24 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,12 @@ void	ft_free_utils(t_utils *utils)
 	utils->split = NULL;
 	free(utils->temp_array);
 	utils->temp_array = NULL;
+}
+
+void	ft_free_all(t_stack **stack_a, t_stack **stack_b, t_utils *utils)
+{
+	ft_free_stack(stack_a);
+	ft_free_stack(stack_b);
+	ft_free_utils(utils);
 }
 

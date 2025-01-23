@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_utils_errors.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 11:20:10 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/20 16:17:45 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/22 14:58:33 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,22 @@ char *ft_create_temp_array(char **argv)
 	char	*joined;
 	int		i;
 
-	temp = ft_strdup("");
+	temp = ft_strdup(argv[1]);
 	if (!temp)
 		return (NULL);
 
-	i = 1;
+	i = 2;
 	while (argv[i])
 	{
 		joined = ft_strjoin_addspace(temp, argv[i]);
-		free(temp);
 		if (!joined)
+		{
+			free(temp);
 			return (NULL);
+		}
 		temp = joined;
 		i++;
 	}
-
 	return (temp);
 }
 

@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 11:41:22 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/21 14:12:57 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/22 14:08:40 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ char	*ft_create_temp_array(char **argv);
 int		ft_check_argv(char *temp_array, char **split, int word);
 t_stack *ft_parse_to_stack(int word, char **split);
 void	ft_sort_three(t_stack **stack_a);
-void	ft_sort_four(t_stack **stack_a, t_stack **stack_b);
+//void	ft_sort_four(t_stack **stack_a, t_stack **stack_b);
 //void	ft_sort_five(t_stack **stack_a, t_stack **stack_b);
 
 /*---------------------------------MAIN SUB_FT--------------------------------*/
@@ -74,6 +74,7 @@ void	ft_stack_add_back(t_stack **stack, t_stack *new);
 void	ft_free_split(char **split);
 void	ft_free_utils(t_utils *utils);
 void	ft_free_stack(t_stack **stack);
+void	ft_free_all(t_stack **stack_a, t_stack **stack_b, t_utils *utils);
 void	ft_check_errors(int argc, char **argv, t_utils *utils, t_stack **stack_a);
 void	ft_error_exit(int err_type, t_utils *utils, t_stack **stack);
 int		ft_stack_is_sorted(t_stack *stack);

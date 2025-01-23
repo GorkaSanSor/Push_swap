@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 12:39:12 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/21 14:12:26 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/22 14:10:19 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,23 @@ static void	ft_push_swap(t_stack **stack_a, t_stack **stack_b, int split_count)
 {
 	if (split_count < 2)
 		return;
+	// Checkeo:
+	if (!stack_b)
+		ft_printf("Error: stack_b está vacío antes de operar\n");
 	else if (split_count == 2 && ft_stack_is_sorted(*stack_a) == 0)
 		ft_sa(stack_a);
 	else if (split_count == 3 && ft_stack_is_sorted(*stack_a) == 0)
 		ft_sort_three(stack_a);
-	else if (split_count == 4 && ft_stack_is_sorted(*stack_a) == 0)
-		ft_sort_four(stack_a, stack_b);
+//	else if (split_count == 4 && ft_stack_is_sorted(*stack_a) == 0)
+//		ft_sort_four(stack_a, stack_b);
 //	else if (split_count == 5 && ft_stack_is_sorted(*stack_a) == 0)
 //		ft_sort_five(stack_a, stack_b);
 	else
 		ft_sort(stack_a);
 }
 
-int main(int argc, char **argv) {
+int main(int argc, char **argv)
+{
 	t_stack *stack_a = NULL;
 	t_stack *stack_b = NULL;
 	t_utils utils;
@@ -48,10 +52,12 @@ int main(int argc, char **argv) {
 
 	ft_push_swap(&stack_a, &stack_b, ft_split_count(utils.split));
 
+	ft_printf("Stack A:\n");
 	ft_print_stack(stack_a);
-	ft_free_stack(&stack_a);
-	ft_free_stack(&stack_b);
-	ft_free_utils(&utils);
+	ft_printf("Stack B:\n");
+	ft_print_stack(stack_b);
+	
+	ft_free_all(&stack_a, &stack_b, &utils);
 
 	return (0);
 }

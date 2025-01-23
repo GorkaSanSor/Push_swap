@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 15:17:00 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/21 10:25:17 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/23 11:35:51 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,25 @@ int	ft_rot_min_cost_to_a(t_stack *stack_a, t_stack *stack_b)
 {
 	t_stack *tmp_b;
 	int cost;
+	int cost_rrr;
+	int cost_rrarb;
+	int cost_rarrb;
 	
+	if (!stack_a || !stack_b)
+		return (UNKNOWN_ERROR);
 	tmp_b = stack_b;
 	cost = ft_cost_rr_a(stack_a, stack_b, stack_b->nbr);
-	while (tmp_b->next != NULL)
+	while (tmp_b)
 	{
-		if (cost > ft_cost_rrr_a(stack_a, stack_b, tmp_b->nbr))
-			cost = ft_cost_rrr_a(stack_a, stack_b, tmp_b->nbr);
-		if (cost > ft_cost_rrarb_a(stack_a, stack_b, tmp_b->nbr))
-			cost = ft_cost_rrarb_a(stack_a, stack_b, tmp_b->nbr);
-		if (cost > ft_cost_rarrb_a(stack_a, stack_b, tmp_b->nbr))
-			cost = ft_cost_rarrb_a(stack_a, stack_b, tmp_b->nbr);
+		cost_rrr = ft_cost_rrr_a(stack_a, stack_b, tmp_b->nbr);
+		cost_rrarb = ft_cost_rrarb_a(stack_a, stack_b, tmp_b->nbr);
+		cost_rarrb = ft_cost_rarrb_a(stack_a, stack_b, tmp_b->nbr);
+		if (cost > cost_rrr)
+			cost = cost_rrr;
+		if (cost > cost_rrarb)
+			cost = cost_rrarb;
+		if (cost > cost_rarrb)
+			cost = cost_rarrb;
 		tmp_b = tmp_b->next;
 	}
 	return (cost);
@@ -36,17 +44,26 @@ int	ft_rot_min_cost_to_b(t_stack *stack_a, t_stack *stack_b)
 {
 	t_stack *tmp_a;
 	int cost;
+	int cost_rrr;
+	int cost_rrarb;
+	int cost_rarrb;
 	
-	tmp_a = stack_b;
+	if (!stack_a || !stack_b)
+		return (UNKNOWN_ERROR);
+	tmp_a = stack_a;
 	cost = ft_cost_rr_b(stack_a, stack_b, stack_b->nbr);
-	while (tmp_a->next != NULL)
+	while (tmp_a)
 	{
-		if (cost > ft_cost_rrr_b(stack_a, stack_b, tmp_a->nbr))
-			cost = ft_cost_rrr_b(stack_a, stack_b, tmp_a->nbr);
-		if (cost > ft_cost_rrarb_b(stack_a, stack_b, tmp_a->nbr))
-			cost = ft_cost_rrarb_b(stack_a, stack_b, tmp_a->nbr);
-		if (cost > ft_cost_rarrb_b(stack_a, stack_b, tmp_a->nbr))
-			cost = ft_cost_rarrb_b(stack_a, stack_b, tmp_a->nbr);
+		cost_rrr = ft_cost_rrr_b(stack_a, stack_b, tmp_a->nbr);
+		cost_rrarb = ft_cost_rrarb_b(stack_a, stack_b, tmp_a->nbr);
+		cost_rarrb = ft_cost_rarrb_b(stack_a, stack_b, tmp_a->nbr);
+
+		if (cost > cost_rrr)
+			cost = cost_rrr;
+		if (cost > cost_rrarb)
+			cost = cost_rrarb;
+		if (cost > cost_rarrb)
+			cost = cost_rarrb;
 		tmp_a = tmp_a->next;
 	}
 	return (cost);
