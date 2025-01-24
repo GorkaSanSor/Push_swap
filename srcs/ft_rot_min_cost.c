@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 15:17:00 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/23 11:35:51 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/24 13:18:43 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_rot_min_cost_to_a(t_stack *stack_a, t_stack *stack_b)
 	if (!stack_a || !stack_b)
 		return (UNKNOWN_ERROR);
 	tmp_b = stack_b;
-	cost = ft_cost_rr_a(stack_a, stack_b, stack_b->nbr);
+	cost = ft_cost_rr_a(stack_a, stack_b, tmp_b->nbr);
 	while (tmp_b)
 	{
 		cost_rrr = ft_cost_rrr_a(stack_a, stack_b, tmp_b->nbr);
@@ -51,7 +51,7 @@ int	ft_rot_min_cost_to_b(t_stack *stack_a, t_stack *stack_b)
 	if (!stack_a || !stack_b)
 		return (UNKNOWN_ERROR);
 	tmp_a = stack_a;
-	cost = ft_cost_rr_b(stack_a, stack_b, stack_b->nbr);
+	cost = ft_cost_rr_b(stack_a, stack_b, tmp_a->nbr);
 	while (tmp_a)
 	{
 		cost_rrr = ft_cost_rrr_b(stack_a, stack_b, tmp_a->nbr);

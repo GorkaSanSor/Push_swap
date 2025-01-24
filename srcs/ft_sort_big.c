@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 11:41:41 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/22 15:08:12 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/24 13:38:09 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,28 +19,34 @@ void	ft_sort_more_than_3_in_b(t_stack **stack_a, t_stack **stack_b)
 	int cost;
 	t_stack *temp_a;
 	
-	//Checkeo:
-	if (!stack_b || !*stack_b)
-		{
-        ft_printf("Error: stack_b está vacío antes de calcular costos\n");
-        //return;
-    }
-	while (ft_stack_size(*stack_a) > 3 && !ft_stack_is_sorted(*stack_a))
+	while (ft_stack_size(*stack_a) > 0)
 	{
 		temp_a = *stack_a;
 		cost = ft_rot_min_cost_to_b(*stack_a, *stack_b);
+		
+		// Checkeo:
+		ft_printf("Coste min para pasar a b:\n");
+		ft_printf("%d\n", cost);
+		ft_printf("stack_a:\n");
+		ft_print_stack(*stack_a);
+		ft_printf("stack_b:\n");
+		ft_print_stack(*stack_b);
+		
 		while (cost >= 0)
 		{
 			if (cost == ft_cost_rr_b(*stack_a, *stack_b, temp_a->nbr))
-				ft_do_rarb(stack_a, stack_b, temp_a->nbr, "stack_a");
+				ft_downdown(stack_a, stack_b, temp_a->nbr, "stack_a");
 			else if (cost == ft_cost_rarrb_b(*stack_a, *stack_b, temp_a->nbr))
-				ft_do_rarrb(stack_a, stack_b, temp_a->nbr, "stack_a");
+				ft_downup(stack_a, stack_b, temp_a->nbr, "stack_a");
 			else if (cost == ft_cost_rrr_b(*stack_a, *stack_b, temp_a->nbr))
-				ft_do_rrarrb(stack_a, stack_b, temp_a->nbr, "stack_a");
+				ft_upup(stack_a, stack_b, temp_a->nbr, "stack_a");
 			else if (cost == ft_cost_rrarb_b(*stack_a, *stack_b, temp_a->nbr))
-				ft_do_rrarb(stack_a, stack_b, temp_a->nbr, "stack_a");
-			else
-				temp_a = temp_a->next;
+				ft_updown(stack_a, stack_b, temp_a->nbr, "stack_a");
+			temp_a = temp_a->next;
+			cost = ft_rot_min_cost_to_b(temp_a, *stack_b);
+			// Checkeo:
+			ft_printf("Coste min para pasar a b:\n");
+			ft_printf("%d\n", cost);
 		}
 	}
 }
@@ -51,16 +57,28 @@ t_stack	*ft_sort_b(t_stack **stack_a)
 	t_stack	*stack_b;
 
 	stack_b = NULL;
-	if (ft_stack_size(*stack_a) > 3 && !ft_stack_is_sorted(*stack_a))
+	if (ft_stack_size(*stack_a) > 0 && !ft_stack_is_sorted(*stack_a))
+	{
 		ft_pb(stack_a, &stack_b);
-	if (ft_stack_size(*stack_a) > 3 && !ft_stack_is_sorted(*stack_a))
 		ft_pb(stack_a, &stack_b);
-	if (ft_stack_size(*stack_a) > 3 && !ft_stack_is_sorted(*stack_a))
-		ft_sort_more_than_3_in_b(stack_a, &stack_b);
-	if (!ft_stack_is_sorted(*stack_a))
-		ft_sort_three(stack_a);
-	return (stack_b);
+	}
+	// Checkeo:
+	ft_printf("stack_a:\n");
+	ft_print_stack(*stack_a);
+	ft_printf("stack_b:\n");
+	ft_print_stack(stack_b);
 	
+	if (ft_stack_is_sorted(stack_b) == 0)
+		ft_sb(&stack_b);
+	// Checkeo:
+	ft_printf("stack_a:\n");
+	ft_print_stack(*stack_a);
+	ft_printf("stack_b:\n");
+	ft_print_stack(stack_b);
+	
+	if (ft_stack_size(*stack_a) > 0)
+		ft_sort_more_than_3_in_b(stack_a, &stack_b);
+	return (stack_b);
 }
 
 // Moves elements from stack_b back to stack_a in sorted order
@@ -76,13 +94,13 @@ t_stack	*ft_sort_a(t_stack **stack_a, t_stack **stack_b)
 		if (temp_b)
 		{
 			if (cost == ft_cost_rr_a(*stack_a, *stack_b, temp_b->nbr))
-					ft_do_rarb(stack_a, stack_b, temp_b->nbr, "stack_b");
+					ft_downdown(stack_a, stack_b, temp_b->nbr, "stack_b");
 				else if (cost == ft_cost_rarrb_a(*stack_a, *stack_b, temp_b->nbr))
-					ft_do_rarrb(stack_a, stack_b, temp_b->nbr, "stack_b");
+					ft_downup(stack_a, stack_b, temp_b->nbr, "stack_b");
 				else if (cost == ft_cost_rrr_a(*stack_a, *stack_b, temp_b->nbr))
-					ft_do_rrarrb(stack_a, stack_b, temp_b->nbr, "stack_b");
+					ft_upup(stack_a, stack_b, temp_b->nbr, "stack_b");
 				else if (cost == ft_cost_rrarb_a(*stack_a, *stack_b, temp_b->nbr))
-					ft_do_rrarb(stack_a, stack_b, temp_b->nbr, "stack_b");
+					ft_updown(stack_a, stack_b, temp_b->nbr, "stack_b");
 				temp_b = temp_b->next;
 		}
 		else
@@ -117,4 +135,9 @@ void	ft_sort(t_stack **stack_a)
 				ft_rra(stack_a);
 		}
 	}
+	// Checkeo:
+	ft_printf("stack_a:\n");
+	ft_print_stack(*stack_a);
+	ft_printf("stack_b:\n");
+	ft_print_stack(stack_b);
 }

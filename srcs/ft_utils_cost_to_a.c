@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 13:53:17 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/20 14:17:25 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/24 12:13:32 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	ft_cost_rr_a(t_stack *stack_a, t_stack *stack_b, int nbr)
 	cost = ft_find_index_a(stack_a, nbr);
 	if (cost < ft_find_index_b(stack_b, nbr))
 		cost = ft_find_index_b(stack_b, nbr);
+	// Checkeo:
+	ft_printf("Coste rr_a para %d: %d\n", nbr, cost);
 	return (cost);
 }
 // Calculate cost for rrr (reverse rotate both stacks simultaneously)
@@ -32,6 +34,8 @@ int	ft_cost_rrr_a(t_stack *stack_a, t_stack *stack_b, int nbr)
 		cost = ft_stack_size(stack_a) - ft_find_index_a(stack_a, nbr);
 	if (cost < (ft_stack_size(stack_b) - ft_find_index(stack_b, nbr)))
 		cost = ft_stack_size(stack_b) - ft_find_index(stack_b, nbr);
+	// Checkeo:
+	ft_printf("Coste rrr_a para %d: %d\n", nbr, cost);
 	return (cost);
 }
 
@@ -41,9 +45,11 @@ int	ft_cost_rrarb_a(t_stack *stack_a, t_stack *stack_b, int nbr)
 	int cost;
 
 	cost = 0;
-	if (ft_find_index(stack_b, nbr) > 0)
-		cost = ft_stack_size(stack_a) - ft_find_index(stack_b, nbr);
-	cost += ft_find_index_a(stack_a, nbr);
+	if (ft_find_index_a(stack_a, nbr) > 0)
+		cost = ft_stack_size(stack_a) - ft_find_index_a(stack_a, nbr);
+	cost += ft_find_index(stack_b, nbr);
+	// Checkeo:
+	ft_printf("Coste rrarb_a para %d: %d\n", nbr, cost);
 	return (cost);
 }
 
@@ -56,5 +62,7 @@ int	ft_cost_rarrb_a(t_stack *stack_a, t_stack *stack_b, int nbr)
 	if (ft_find_index_a(stack_a, nbr) > 0)
 		cost = ft_stack_size(stack_a) - ft_find_index_a(stack_a, nbr);
 	cost += ft_find_index(stack_b, nbr);
+	// Checkeo:
+	ft_printf("Coste rarrb_a para %d: %d\n", nbr, cost);
 	return (cost);
 }

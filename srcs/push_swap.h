@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 11:41:22 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/22 14:08:40 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/24 11:18:44 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ char	*ft_create_temp_array(char **argv);
 int		ft_check_argv(char *temp_array, char **split, int word);
 t_stack *ft_parse_to_stack(int word, char **split);
 void	ft_sort_three(t_stack **stack_a);
-//void	ft_sort_four(t_stack **stack_a, t_stack **stack_b);
+void	ft_sort_four(t_stack **stack_a, t_stack **stack_b);
 //void	ft_sort_five(t_stack **stack_a, t_stack **stack_b);
 
 /*---------------------------------MAIN SUB_FT--------------------------------*/
@@ -69,6 +69,7 @@ int		ft_split_count(char **split);
 
 /*------------------------------------UTILS-----------------------------------*/
 
+void	ft_print_stack(t_stack *stack);
 t_stack *ft_stack_new(int nbr);
 void	ft_stack_add_back(t_stack **stack, t_stack *new);
 void	ft_free_split(char **split);
@@ -95,10 +96,10 @@ int		ft_cost_rrarb_a(t_stack *stack_a, t_stack *stack_b, int nbr);
 int		ft_cost_rarrb_a(t_stack *stack_a, t_stack *stack_b, int nbr);
 int		ft_rot_min_cost_to_a(t_stack *stack_a, t_stack *stack_b);
 int		ft_rot_min_cost_to_b(t_stack *stack_a, t_stack *stack_b);
-int		ft_do_rarb(t_stack **stack_a, t_stack **stack_b, int n, char *stack);
-int		ft_do_rrarrb(t_stack **stack_a, t_stack **stack_b, int n, char *stack);
-int		ft_do_rrarb(t_stack **stack_a, t_stack **stack_b, int n, char *stack);
-int		ft_do_rarrb(t_stack **stack_a, t_stack **stack_b, int n, char *stack);
+int		ft_downdown(t_stack **stack_a, t_stack **stack_b, int n, char *stack);
+int		ft_upup(t_stack **stack_a, t_stack **stack_b, int n, char *stack);
+int		ft_updown(t_stack **stack_a, t_stack **stack_b, int n, char *stack);
+int		ft_downup(t_stack **stack_a, t_stack **stack_b, int n, char *stack);
 void	ft_sort_more_than_3_in_b(t_stack **stack_a, t_stack **stack_b);
 t_stack	*ft_sort_b(t_stack **stack_a);
 t_stack	*ft_sort_a(t_stack **stack_a, t_stack **stack_b);

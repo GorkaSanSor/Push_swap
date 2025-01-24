@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 14:11:56 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/20 14:17:45 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/24 12:41:31 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@ int	ft_cost_rr_b(t_stack *stack_a, t_stack *stack_b, int nbr)
 	int	cost;
 
 	cost = ft_find_index_b(stack_b, nbr);
-	if (cost < ft_find_index_a(stack_a, nbr))
-		cost = ft_find_index_a(stack_a, nbr);
+	if (cost < ft_find_index(stack_a, nbr))
+		cost = ft_find_index(stack_a, nbr);
+	// Checkeo:
+	ft_printf("Coste rr_b para %d: %d\n", nbr, cost);
 	return (cost);
 }
 
@@ -33,6 +35,8 @@ int	ft_cost_rrr_b(t_stack *stack_a, t_stack *stack_b, int nbr)
 		cost = ft_stack_size(stack_b) - ft_find_index_b(stack_b, nbr);
 	if (cost < (ft_stack_size(stack_a) - ft_find_index(stack_a, nbr)))
 		cost = ft_stack_size(stack_a) - ft_find_index(stack_a, nbr);
+	// Checkeo:
+	ft_printf("Coste rrr_b para %d: %d\n", nbr, cost);
 	return (cost);
 }
 
@@ -43,8 +47,10 @@ int	ft_cost_rrarb_b(t_stack *stack_a, t_stack *stack_b, int nbr)
 
 	cost = 0;
 	if (ft_find_index(stack_a, nbr) > 0)
-		cost = ft_stack_size(stack_b) - ft_find_index(stack_a, nbr);
+		cost = ft_stack_size(stack_a) - ft_find_index(stack_a, nbr);
 	cost += ft_find_index_b(stack_b, nbr);
+	// Checkeo:
+	ft_printf("Coste rrarb_b para %d: %d\n", nbr, cost);
 	return (cost);
 }
 
@@ -57,5 +63,7 @@ int	ft_cost_rarrb_b(t_stack *stack_a, t_stack *stack_b, int nbr)
 	if (ft_find_index_b(stack_b, nbr) > 0)
 		cost = ft_stack_size(stack_b) - ft_find_index_b(stack_b, nbr);
 	cost += ft_find_index(stack_a, nbr);
+	// Checkeo:
+	ft_printf("Coste rarrb_b para %d: %d\n", nbr, cost);
 	return (cost);
 }
