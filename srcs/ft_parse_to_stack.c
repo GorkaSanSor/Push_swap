@@ -6,36 +6,37 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 12:37:38 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/20 14:16:06 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/30 18:19:34 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // Save the nbrs into the list
-t_stack *ft_parse_to_stack(int word, char **split)
+t_stack	*ft_parse_to_stack(int word, char **split)
 {
-	t_stack	*stack_a;
+	t_stack	*a;
 	int		i;
 	int		num;
-	
-	stack_a = NULL;
+
+	a = NULL;
 	i = 0;
 	while (i < word)
 	{
 		num = ft_atoi(split[i]);
 		if (i == 0)
-			stack_a = ft_stack_new(num);
+			a = ft_stack_new(num);
 		else
-			ft_stack_add_back(&stack_a, ft_stack_new(num));
+			ft_stack_add_back(&a, ft_stack_new(num));
 		i++;
 	}
-	return (stack_a);
+	return (a);
 }
-t_stack *ft_stack_new(int nbr)
+
+t_stack	*ft_stack_new(int nbr)
 {
-	t_stack *new;
-	
+	t_stack	*new;
+
 	new = (t_stack *)malloc(sizeof(t_stack));
 	if (!new)
 		return (0);
@@ -47,10 +48,10 @@ t_stack *ft_stack_new(int nbr)
 
 void	ft_stack_add_back(t_stack **stack, t_stack *new)
 {
-	t_stack *current;
-	
+	t_stack	*current;
+
 	current = *stack;
-	if(!*stack)
+	if (!*stack)
 	{
 		*stack = new;
 		return ;

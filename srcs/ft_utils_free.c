@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 12:42:09 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/23 15:15:48 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/30 18:11:49 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,11 @@ void	ft_free_split(char **split)
 	}
 	free(split);
 }
+
 void	ft_free_stack(t_stack **stack)
 {
-	t_stack *current;
-	
+	t_stack	*current;
+
 	if (stack == NULL || *stack == NULL)
 		return ;
 	current = *stack;
@@ -52,10 +53,9 @@ void	ft_free_utils(t_utils *utils)
 	utils->temp_array = NULL;
 }
 
-void	ft_free_all(t_stack **stack_a, t_stack **stack_b, t_utils *utils)
+void	ft_free_all(t_stack **a, t_stack **b, t_utils *utils)
 {
-	ft_free_stack(stack_a);
-	ft_free_stack(stack_b);
+	ft_free_stack(a);
+	ft_free_stack(b);
 	ft_free_utils(utils);
 }
-

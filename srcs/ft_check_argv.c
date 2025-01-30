@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 13:34:10 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/10 16:36:38 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/30 18:24:05 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // Verifica si un string representa un número válido
 int	ft_check_digits(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (ft_isalpha(str[i]))
@@ -69,9 +69,10 @@ int	ft_duplicates(char **split, int word)
 // Verifica si los números están en los límites de int
 int	ft_maxint(char **split, int word)
 {
-	int i = 0;
-	long nbr;
+	int		i;
+	long	nbr;
 
+	i = 0;
 	while (i < word)
 	{
 		nbr = ft_long_atoi(split[i]);
@@ -85,8 +86,6 @@ int	ft_maxint(char **split, int word)
 // Realiza las tres verificaciones en una función
 int	ft_check_argv(char *temp_array, char **split, int word)
 {
-
-	// perform 3 checks: digits, duplicates, maxint or < minint.
 	if (ft_check_digits(temp_array) != 0)
 		return (1);
 	if (ft_duplicates(split, word) != 0)
@@ -99,10 +98,10 @@ int	ft_check_argv(char *temp_array, char **split, int word)
 // Cuenta la cantidad de palabras en `split`
 int	ft_split_count(char **split)
 {
-	int count = 0;
+	int	count;
 
+	count = 0;
 	while (split[count] != NULL)
 		count++;
 	return (count);
 }
-

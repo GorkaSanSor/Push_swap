@@ -1,50 +1,75 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_stack.c                                      :+:      :+:    :+:   */
+/*   ft_utils_stack.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 12:47:09 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/20 14:19:03 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/30 18:25:08 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // Finds the smallest nbr of the stack
-int ft_min_num(t_stack *stack)
+t_stack	*ft_min_num(t_stack *stack)
 {
-	int	min;
-	
-	min = stack->nbr;
+	t_stack	*min;
+
+	if (!stack)
+		return (NULL);
+	min = stack;
 	while (stack)
 	{
-		if (stack->nbr < min)
-			min = stack->nbr;
+		if (stack->nbr < min->nbr)
+			min = stack;
 		stack = stack->next;
 	}
 	return (min);
 }
 
 // Finds the bigest nbr of the stack
-int	ft_max_num(t_stack *stack)
+t_stack	*ft_max_num(t_stack *stack)
 {
-	int	max;
-	
-	max = stack->nbr;
-	while (stack)
+	t_stack	*max;
+
+	if (!stack)
+		return (NULL);
+	max = stack;
+	while (stack != NULL)
 	{
-		if (stack->nbr > max)
-			max = stack->nbr;
+		if (stack->nbr > max->nbr)
+			max = stack;
 		stack = stack->next;
 	}
 	return (max);
 }
 
+void	ft_max_to_top(t_stack **b)
+{
+	t_stack	*max;
+	int		size_b;
+	int		half_b;
+
+	max = ft_max_num(*b);
+	size_b = ft_stack_size(*b);
+	half_b = size_b / 2;
+	if (max->index <= half_b)
+	{
+		while (max->index != (*b)->index)
+			ft_rb(b);
+	}
+	if (max->index > half_b)
+	{
+		while (max->index != (*b)->index)
+			ft_rrb(b);
+	}
+}
+
 int	ft_stack_size(t_stack *stack)
 {
-	int size;
+	int	size;
 
 	size = 0;
 	while (stack)

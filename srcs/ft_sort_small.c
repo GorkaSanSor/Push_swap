@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 12:11:51 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/24 10:31:36 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/30 18:21:59 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,79 +25,53 @@ int	ft_stack_is_sorted(t_stack *stack)
 }
 
 // Sort a stack of 3 nbrs only.
-void	ft_sort_three(t_stack **stack_a)
+void	ft_sort_three(t_stack **stack)
 {
-	if (ft_stack_is_sorted(*stack_a) == 1)
-		return ;
-	if (ft_min_num(*stack_a) == (*stack_a)->nbr)
+	int	first;
+	int	second;
+	int	third;
+
+	first = (*stack)->nbr;
+	second = (*stack)->next->nbr;
+	third = (*stack)->next->next->nbr;
+	if (first > second && second > third)
 	{
-		ft_rra(stack_a);
-		ft_sa(stack_a);
+		ft_ra(stack);
+		ft_sa(stack);
 	}
-	else if (ft_max_num(*stack_a) == (*stack_a)->nbr)
+	else if (first > second && second < third)
+		ft_ra(stack);
+	else if (first < second && first > third && second > third)
+		ft_rra(stack);
+	else if (second > first && second > third && third > first)
 	{
-		ft_ra(stack_a);
-		if (!ft_stack_is_sorted(*stack_a))
-			ft_sa(stack_a);
+		ft_rra(stack);
+		ft_sa(stack);
 	}
-	else
-	{
-		if (ft_find_index(*stack_a, ft_max_num(*stack_a)) == 1)
-			ft_rra(stack_a);
-		else
-			ft_sa(stack_a);
-	}
+	else if (first > second && second < third && first < third)
+		ft_sa(stack);
 }
 
-void	ft_sort_four(t_stack **stack_a, t_stack **stack_b)
+void	ft_sort_four(t_stack **a, t_stack **b)
 {
-	if (ft_min_num(*stack_a) == (*stack_a)->nbr)
-		ft_pb(stack_a, stack_b);
-	else if(ft_min_num(*stack_a) == (*stack_a)->next->nbr)
+	if (ft_min_num(*a)->nbr == (*a)->nbr)
+		ft_pb(a, b);
+	else if (ft_min_num(*a)->nbr == (*a)->next->nbr)
 	{
-		ft_sa(stack_a);
-		ft_pb(stack_a, stack_b);
+		ft_sa(a);
+		ft_pb(a, b);
 	}
-	else if (ft_min_num(*stack_a) == (*stack_a)->next->next->nbr)
+	else if (ft_min_num(*a)->nbr == (*a)->next->next->nbr)
 	{
-		ft_rra(stack_a);
-		ft_rra(stack_a);
-		ft_pb(stack_a, stack_b);
+		ft_rra(a);
+		ft_rra(a);
+		ft_pb(a, b);
 	}
 	else
 	{
-		ft_rra(stack_a);
-		ft_pb(stack_a, stack_b);
+		ft_rra(a);
+		ft_pb(a, b);
 	}
-	ft_sort_three(stack_a);
-	ft_pa(stack_a, stack_b);
+	ft_sort_three(a);
+	ft_pa(a, b);
 }
-/*
-void	ft_sort_five(t_stack **stack_a, t_stack **stack_b)
-{
-	int min_index;
-
-	min_index = ft_find_index(*stack_a, ft_min_num(*stack_a));
-	if (min_index == 0)
-		ft_pb(stack_a, stack_b);
-	else if (min_index == 1)
-	{
-		ft_sa(stack_a);
-		ft_pb(stack_a, stack_b);
-	}
-	else if (min_index == 2)
-	{
-		ft_ra(stack_a);
-		ft_sa(stack_a);
-		ft_pb(stack_a, stack_b);
-	}
-	else
-	{
-		while (min_index++ < 5)
-			ft_rra(stack_a);
-		ft_pb(stack_a, stack_b);
-	}
-	ft_sort_four(stack_a, stack_b);
-	ft_pa(stack_a, stack_b);
-}
-*/

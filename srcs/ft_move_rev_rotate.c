@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 13:44:20 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/23 11:43:38 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/30 18:21:23 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,36 +16,39 @@
 // The last element becomes the first.
 static void	ft_rev_rotate(t_stack **stack)
 {
-	t_stack *current;
-	t_stack *prev;
+	t_stack	*last;
+	t_stack	*prev;
 
 	if (*stack == NULL || (*stack)->next == NULL)
 		return ;
-	current = *stack;
+	last = *stack;
 	prev = NULL;
-	while (current->next != NULL)
+	while (last->next != NULL)
 	{
-		prev = current;
-		current = current->next;
+		prev = last;
+		last = last->next;
 	}
-	prev->next = NULL;
-	current->next = *stack;
-	*stack = current;
+	last->next = *stack;
+	*stack = last;
+	if (prev != NULL)
+		prev->next = NULL;
 }
 
-void	ft_rra(t_stack **stack_a)
+void	ft_rra(t_stack **a)
 {
-	ft_rev_rotate(stack_a);
+	ft_rev_rotate(a);
 	ft_printf("rra\n");
 }
-void	ft_rrb(t_stack **stack_b)
+
+void	ft_rrb(t_stack **b)
 {
-	ft_rev_rotate(stack_b);
+	ft_rev_rotate(b);
 	ft_printf("rrb\n");
 }
-void	ft_rrr(t_stack **stack_a, t_stack **stack_b)
+
+void	ft_rrr(t_stack **a, t_stack **b)
 {
-	ft_rev_rotate(stack_a);
-	ft_rev_rotate(stack_b);
+	ft_rev_rotate(a);
+	ft_rev_rotate(b);
 	ft_printf("rrr\n");
 }
