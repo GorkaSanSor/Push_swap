@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 12:11:51 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/31 12:14:31 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/31 13:29:24 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,17 @@ void	ft_sort_four(t_stack **a, t_stack **b)
 	}
 	ft_sort_three(a);
 	ft_pa(a, b);
+}
+
+// Sorts a stack containing exactly 5 numbers.
+void	ft_sort_five(t_stack **a, t_stack **b)
+{
+	ft_pb(a, b);
+	ft_sort_four(a, b);
+	if ((*b)->nbr < (*a)->next->nbr || (*b)->nbr > ft_last_num(*a)->nbr)
+	{
+		ft_pa(a, b);
+		if ((*a)->nbr > ft_last_num(*a)->nbr)
+			ft_ra(a);
+	}
 }
