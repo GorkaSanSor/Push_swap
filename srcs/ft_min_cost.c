@@ -6,12 +6,13 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 12:21:45 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/30 18:10:17 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/31 12:22:05 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// Calculates the cost of moving each element from stack a to b.
 void	ft_set_cost(t_stack *a, int size_a, int size_b)
 {
 	int	half_a;
@@ -33,6 +34,7 @@ void	ft_set_cost(t_stack *a, int size_a, int size_b)
 	}
 }
 
+// Finds the index of the target for a number in stack b.
 static int	ft_middle_target_index(int to_push, t_stack *b)
 {
 	int		indx;
@@ -53,6 +55,7 @@ static int	ft_middle_target_index(int to_push, t_stack *b)
 	return (indx);
 }
 
+// Assigns a target index to each element in stack a based on stack b.
 void	ft_set_target(t_stack *a, t_stack *b)
 {
 	t_stack	*min;
@@ -70,6 +73,7 @@ void	ft_set_target(t_stack *a, t_stack *b)
 	}
 }
 
+// Finds the element with the minimum cost in a stack.
 t_stack	*ft_find_min_cost(t_stack *stack)
 {
 	t_stack	*min_cost;
@@ -84,6 +88,7 @@ t_stack	*ft_find_min_cost(t_stack *stack)
 	return (min_cost);
 }
 
+// Moves the element with the minimum cost to the top of stack a.
 void	ft_cheap_to_top(t_stack **a, t_stack **b)
 {
 	t_stack	*min_cost;

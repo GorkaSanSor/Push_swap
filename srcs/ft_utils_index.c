@@ -6,13 +6,13 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 12:58:08 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/30 18:10:51 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/31 12:10:52 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// Set the index of all nbr in the stack.
+// Sets the index of all numbers in the stack sequentially.
 void	ft_set_index(t_stack *stack)
 {
 	int	size;

@@ -6,12 +6,13 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 11:41:41 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/30 18:19:52 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/31 12:15:10 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// Sorts a stack with more than 4 numbers using a push-based algorithm.
 void	ft_sort_big(t_stack **a, t_stack **b)
 {
 	ft_pb(a, b);

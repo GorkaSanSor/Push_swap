@@ -6,13 +6,13 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 11:20:10 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/30 18:08:57 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/31 12:13:22 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//Crea un temp_array concatenando todos los argumentos separados por espacios
+// Creates a temp_array by concatenating all arguments separated by spaces.
 char	*ft_create_temp_array(char **argv)
 {
 	char	*temp;
@@ -37,6 +37,7 @@ char	*ft_create_temp_array(char **argv)
 	return (temp);
 }
 
+// Checks for errors in input arguments and initializes the stack.
 void	ft_check_errors(int argc, char **argv, t_utils *utils, t_stack **a)
 {
 	int	split_count;
@@ -65,6 +66,7 @@ void	ft_check_errors(int argc, char **argv, t_utils *utils, t_stack **a)
 		ft_error_exit(UNKNOWN_ERROR, utils, a);
 }
 
+// Handles errors, frees allocated memory, and exits the program.
 void	ft_error_exit(int err_type, t_utils *utils, t_stack **stack)
 {
 	if (utils)

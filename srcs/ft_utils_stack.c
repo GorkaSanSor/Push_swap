@@ -6,13 +6,13 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 12:47:09 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/30 18:25:08 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/31 12:09:44 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// Finds the smallest nbr of the stack
+// Finds the smallest number in the stack.
 t_stack	*ft_min_num(t_stack *stack)
 {
 	t_stack	*min;
@@ -29,7 +29,7 @@ t_stack	*ft_min_num(t_stack *stack)
 	return (min);
 }
 
-// Finds the bigest nbr of the stack
+// Finds the largest number in the stack.
 t_stack	*ft_max_num(t_stack *stack)
 {
 	t_stack	*max;
@@ -46,6 +46,7 @@ t_stack	*ft_max_num(t_stack *stack)
 	return (max);
 }
 
+// Moves the largest number in stack b to the top.
 void	ft_max_to_top(t_stack **b)
 {
 	t_stack	*max;
@@ -67,6 +68,7 @@ void	ft_max_to_top(t_stack **b)
 	}
 }
 
+// Returns the number of elements in the stack.
 int	ft_stack_size(t_stack *stack)
 {
 	int	size;
@@ -80,6 +82,7 @@ int	ft_stack_size(t_stack *stack)
 	return (size);
 }
 
+// Returns the last node of the stack.
 t_stack	*ft_last_num(t_stack *stack)
 {
 	while (stack->next)

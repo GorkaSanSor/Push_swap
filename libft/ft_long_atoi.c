@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 12:21:32 by gsantill          #+#    #+#             */
-/*   Updated: 2024/12/19 14:53:13 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/31 12:03:56 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 long	ft_long_atoi(const char *str)
 {
-	int	sign;
+	int		sign;
 	long	result;
 
 	while (*str == ' ' || (*str >= 9 && *str <= 13))

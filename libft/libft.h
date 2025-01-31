@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 18:35:03 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/21 10:12:17 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/31 12:05:10 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-# include"../srcs/push_swap.h"
+# include "../srcs/push_swap.h"
 
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);

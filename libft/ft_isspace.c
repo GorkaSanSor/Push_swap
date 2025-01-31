@@ -6,15 +6,15 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 12:27:32 by gsantill          #+#    #+#             */
-/*   Updated: 2024/12/26 17:01:41 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/31 12:05:44 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isspace(int c)
+int	ft_isspace(int c)
 {
-    if ((c >= 9 && c <= 13) || c == ' ')
-        return (1);
-    return (0);
+	if ((c >= 9 && c <= 13) || c == ' ')
+		return (1);
+	return (0);
 }

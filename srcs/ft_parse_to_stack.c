@@ -6,13 +6,13 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 12:37:38 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/30 18:19:34 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/31 12:15:55 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// Save the nbrs into the list
+// Parses numbers from an array of strings and stores them in a linked list.
 t_stack	*ft_parse_to_stack(int word, char **split)
 {
 	t_stack	*a;
@@ -33,6 +33,7 @@ t_stack	*ft_parse_to_stack(int word, char **split)
 	return (a);
 }
 
+// Creates a new stack node with the given number.
 t_stack	*ft_stack_new(int nbr)
 {
 	t_stack	*new;
@@ -46,6 +47,7 @@ t_stack	*ft_stack_new(int nbr)
 	return (new);
 }
 
+// Adds a new node to the end of the stack.
 void	ft_stack_add_back(t_stack **stack, t_stack *new)
 {
 	t_stack	*current;

@@ -6,13 +6,13 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 13:34:10 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/30 18:24:05 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/31 12:25:41 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// Verifica si un string representa un número válido
+// Checks if the string represents a valid number.
 int	ft_check_digits(char *str)
 {
 	int	i;
@@ -41,7 +41,7 @@ int	ft_check_digits(char *str)
 	return (0);
 }
 
-// Verifica si hay duplicados en el array de strings `split`
+// Checks for duplicates in the split string array.
 int	ft_duplicates(char **split, int word)
 {
 	int		i;
@@ -66,7 +66,7 @@ int	ft_duplicates(char **split, int word)
 	return (0);
 }
 
-// Verifica si los números están en los límites de int
+// Checks if the numbers in the split array are within the int limits.
 int	ft_maxint(char **split, int word)
 {
 	int		i;
@@ -83,7 +83,7 @@ int	ft_maxint(char **split, int word)
 	return (0);
 }
 
-// Realiza las tres verificaciones en una función
+// Performs all three checks (digits, duplicates, max int) on the arguments.
 int	ft_check_argv(char *temp_array, char **split, int word)
 {
 	if (ft_check_digits(temp_array) != 0)
@@ -95,7 +95,7 @@ int	ft_check_argv(char *temp_array, char **split, int word)
 	return (0);
 }
 
-// Cuenta la cantidad de palabras en `split`
+// Counts the number of words in the split string array.
 int	ft_split_count(char **split)
 {
 	int	count;

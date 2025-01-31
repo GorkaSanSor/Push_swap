@@ -6,24 +6,13 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 12:39:12 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/30 18:25:40 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/31 12:08:11 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// Necesaria solo para testeo
-void	ft_print_stack(t_stack *stack)
-{
-	while (stack)
-	{
-		ft_printf("Number: %d\n", stack->nbr);
-		stack = stack->next;
-	}
-	ft_printf("\n");
-}
-
-// Checkea la cantidad de numeros y llama al algoritmo correspondiente.
+// Determines the sorting algorithm based on the number of elements.
 static void	ft_push_swap(t_stack **a, t_stack **b, int split_count)
 {
 	if (split_count < 2)
@@ -48,10 +37,6 @@ int	main(int argc, char **argv)
 	b = NULL;
 	ft_check_errors(argc, argv, &utils, &a);
 	ft_push_swap(&a, &b, ft_split_count(utils.split));
-	ft_printf("Stack A:\n");
-	ft_print_stack(a);
-	ft_printf("Stack B:\n");
-	ft_print_stack(b);
 	ft_free_all(&a, &b, &utils);
 	return (0);
 }

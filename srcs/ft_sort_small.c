@@ -6,13 +6,13 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 12:11:51 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/30 18:21:59 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/31 12:14:31 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// Comprueba si la lista está ya ordenada
+// Checks if the stack is already sorted in ascending order.
 int	ft_stack_is_sorted(t_stack *stack)
 {
 	while (stack->next != NULL)
@@ -24,7 +24,7 @@ int	ft_stack_is_sorted(t_stack *stack)
 	return (1);
 }
 
-// Sort a stack of 3 nbrs only.
+// Sorts a stack containing exactly 3 numbers.
 void	ft_sort_three(t_stack **stack)
 {
 	int	first;
@@ -52,6 +52,7 @@ void	ft_sort_three(t_stack **stack)
 		ft_sa(stack);
 }
 
+// Sorts a stack containing exactly 4 numbers.
 void	ft_sort_four(t_stack **a, t_stack **b)
 {
 	if (ft_min_num(*a)->nbr == (*a)->nbr)

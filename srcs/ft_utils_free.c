@@ -6,12 +6,13 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 12:42:09 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/30 18:11:49 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/31 12:12:19 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// Frees the memory allocated for a split string array.
 void	ft_free_split(char **split)
 {
 	int	word;
@@ -27,6 +28,7 @@ void	ft_free_split(char **split)
 	free(split);
 }
 
+// Frees the entire stack and sets the pointer to NULL.
 void	ft_free_stack(t_stack **stack)
 {
 	t_stack	*current;
@@ -45,6 +47,7 @@ void	ft_free_stack(t_stack **stack)
 	return ;
 }
 
+// Frees the utility structure and resets its pointers.
 void	ft_free_utils(t_utils *utils)
 {
 	ft_free_split(utils->split);
@@ -53,6 +56,7 @@ void	ft_free_utils(t_utils *utils)
 	utils->temp_array = NULL;
 }
 
+// Frees all allocated memory for stacks and utility structures.
 void	ft_free_all(t_stack **a, t_stack **b, t_utils *utils)
 {
 	ft_free_stack(a);
