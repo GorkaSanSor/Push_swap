@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 13:34:10 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/31 12:25:41 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/01/31 15:56:53 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,12 +96,12 @@ int	ft_check_argv(char *temp_array, char **split, int word)
 }
 
 // Counts the number of words in the split string array.
-int	ft_split_count(char **split)
+void	ft_split_count(t_utils *utils)
 {
 	int	count;
 
 	count = 0;
-	while (split[count] != NULL)
+	while (utils->split[count] != NULL)
 		count++;
-	return (count);
+	utils->split_count = count;
 }

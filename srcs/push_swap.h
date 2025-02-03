@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 11:41:22 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/31 12:27:46 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/02/03 12:55:28 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ typedef struct s_utils
 {
 	char	**split;
 	char	*temp_array;
+	int		split_count;
 }	t_utils;
 
 /* ------------------------------ MAIN FUNCTIONS ---------------------------- */
@@ -72,13 +73,14 @@ int		ft_check_argv(char *temp_array, char **split, int word);
 int		ft_stack_is_sorted(t_stack *stack);
 void	ft_sort_three(t_stack **a);
 void	ft_sort_four(t_stack **a, t_stack **b);
+void	ft_sort_five(t_stack **a, t_stack **b);
 void	ft_sort_big(t_stack **a, t_stack **b);
 
 /* -------------------------- ARGUMENT VALIDATION --------------------------- */
 int		ft_check_digits(char *str);
 int		ft_duplicates(char **split, int word);
 int		ft_maxint(char **split, int word);
-int		ft_split_count(char **split);
+void	ft_split_count(t_utils *utils);
 
 /* ---------------------------- STACK UTILITIES ----------------------------- */
 t_stack	*ft_stack_new(int nbr);

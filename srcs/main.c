@@ -6,23 +6,27 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 12:39:12 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/31 15:29:15 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/02/03 13:19:03 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // Determines the sorting algorithm based on the number of elements.
-static void	ft_push_swap(t_stack **a, t_stack **b, int split_count)
+static void	ft_push_swap(t_stack **a, t_stack **b, t_utils *utils)
 {
-	if (split_count < 2)
+	if (ft_stack_is_sorted(*a) == 1)
 		return ;
-	else if (split_count == 2 && ft_stack_is_sorted(*a) == 0)
+	if (utils->split_count < 2)
+		return ;
+	else if (utils->split_count == 2)
 		ft_sa(a);
-	else if (split_count == 3 && ft_stack_is_sorted(*a) == 0)
+	else if (utils->split_count == 3)
 		ft_sort_three(a);
-	else if (split_count == 4 && ft_stack_is_sorted(*a) == 0)
+	else if (utils->split_count == 4)
 		ft_sort_four(a, b);
+	else if (utils->split_count == 5)
+		ft_sort_five(a, b);
 	else
 		ft_sort_big(a, b);
 }
@@ -36,7 +40,16 @@ int	main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 	ft_check_errors(argc, argv, &utils, &a);
-	ft_push_swap(&a, &b, ft_split_count(utils.split));
+	utils.temp_array = ft_create_temp_array(argv);
+	utils.split = ft_split(utils.temp_array, ' ');
+	if (!utils.temp_array || !utils.split)
+	{
+		ft_free_all(&a, &b, &utils);
+		return (UNKNOWN_ERROR);
+	}
+	ft_split_count(&utils);
+	a = ft_parse_to_stack(utils.split_count, utils.split);
+	ft_push_swap(&a, &b, &utils);
 	ft_free_all(&a, &b, &utils);
 	return (0);
 }
