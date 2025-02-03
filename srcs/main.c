@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 12:39:12 by gsantill          #+#    #+#             */
-/*   Updated: 2025/02/03 13:19:03 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/02/03 14:20:18 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,12 @@ int	main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 	ft_check_errors(argc, argv, &utils, &a);
-	utils.temp_array = ft_create_temp_array(argv);
-	utils.split = ft_split(utils.temp_array, ' ');
 	if (!utils.temp_array || !utils.split)
 	{
 		ft_free_all(&a, &b, &utils);
 		return (UNKNOWN_ERROR);
 	}
 	ft_split_count(&utils);
-	a = ft_parse_to_stack(utils.split_count, utils.split);
 	ft_push_swap(&a, &b, &utils);
 	ft_free_all(&a, &b, &utils);
 	return (0);

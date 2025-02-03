@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 12:11:51 by gsantill          #+#    #+#             */
-/*   Updated: 2025/02/03 13:19:39 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/02/03 14:28:41 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	ft_sort_five(t_stack **a, t_stack **b)
 {
 	ft_pb(a, b);
 	ft_sort_four(a, b);
-	if ((*b)->nbr < (*a)->next->nbr || (*b)->nbr > ft_last_num(*a)->nbr)
+	if ((*b)->nbr < (*a)->next->nbr || (*b)->nbr > (*a)->next->next->next->nbr)
 	{
 		ft_pa(a, b);
 		if ((*a)->nbr > ft_last_num(*a)->nbr)
@@ -97,8 +97,8 @@ void	ft_sort_five(t_stack **a, t_stack **b)
 		ft_sa(a);
 		ft_rra(a);
 	}
-	else if ((*b)->nbr > ft_last_num(*a)->prev->nbr \
-	&& (*b)->nbr < ft_last_num(*a)->nbr)
+	else if ((*b)->nbr > (*a)->next->next->nbr \
+	&& (*b)->nbr < (*a)->next->next->next->nbr)
 	{
 		ft_rra(a);
 		ft_pa(a, b);

@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 12:42:09 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/31 12:12:19 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/02/03 14:29:33 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,15 @@ void	ft_free_split(char **split)
 // Frees the entire stack and sets the pointer to NULL.
 void	ft_free_stack(t_stack **stack)
 {
-	t_stack	*current;
+	t_stack	*tmp;
 
-	if (stack == NULL || *stack == NULL)
-		return ;
-	current = *stack;
-	while (current->next)
+	while (*stack)
 	{
-		current = current->next;
-		free(*stack);
-		*stack = current;
+		tmp = *stack;
+		*stack = (*stack)->next;
+		free(tmp);
 	}
-	free(*stack);
 	*stack = NULL;
-	return ;
 }
 
 // Frees the utility structure and resets its pointers.
