@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 11:20:10 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/31 12:13:22 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/02/10 10:13:50 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ char	*ft_create_temp_array(char **argv)
 			free(temp);
 			return (NULL);
 		}
+		free(temp);
 		temp = joined;
 		i++;
 	}

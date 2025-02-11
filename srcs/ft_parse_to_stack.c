@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 12:37:38 by gsantill          #+#    #+#             */
-/*   Updated: 2025/01/31 12:15:55 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/02/07 13:38:46 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ t_stack	*ft_stack_new(int nbr)
 		return (0);
 	new->nbr = nbr;
 	new->index = 0;
+	new->target = 0;
+	new->prev = NULL;
 	new->next = NULL;
 	return (new);
 }

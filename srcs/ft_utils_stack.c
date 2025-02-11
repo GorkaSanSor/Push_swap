@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 12:47:09 by gsantill          #+#    #+#             */
-/*   Updated: 2025/02/03 12:52:21 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/02/10 09:55:03 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,5 +87,7 @@ t_stack	*ft_last_num(t_stack *stack)
 {
 	while (stack->next)
 		stack = stack->next;
+	if (!stack->next)
+		stack->next = NULL;
 	return (stack);
 }

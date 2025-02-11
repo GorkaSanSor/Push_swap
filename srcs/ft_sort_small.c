@@ -6,7 +6,7 @@
 /*   By: gsantill <gsantill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 12:11:51 by gsantill          #+#    #+#             */
-/*   Updated: 2025/02/03 14:28:41 by gsantill         ###   ########.fr       */
+/*   Updated: 2025/02/11 14:53:36 by gsantill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ void	ft_sort_three(t_stack **stack)
 		ft_ra(stack);
 		ft_sa(stack);
 	}
-	else if (first > second && second < third)
-		ft_ra(stack);
+	else if (first > second && second < third && first < third)
+		ft_sa(stack);
 	else if (first < second && first > third && second > third)
 		ft_rra(stack);
 	else if (second > first && second > third && third > first)
@@ -48,8 +48,8 @@ void	ft_sort_three(t_stack **stack)
 		ft_rra(stack);
 		ft_sa(stack);
 	}
-	else if (first > second && second < third && first < third)
-		ft_sa(stack);
+	else if (first > second && first > third && second < third)
+		ft_ra(stack);
 }
 
 // Sorts a stack containing exactly 4 numbers.
